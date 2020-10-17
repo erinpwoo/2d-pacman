@@ -28,7 +28,8 @@ public class Pacman : MonoBehaviour
             direction = Vector2.down;
             transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
             transform.localRotation = Quaternion.Euler(0, 0, 270);
-        } else if (Input.GetKey(KeyCode.LeftArrow))
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
            direction = Vector2.left;
            transform.localScale = new Vector3(-2.9f, 2.9f, 2.9f);
