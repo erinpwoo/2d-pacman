@@ -21,19 +21,24 @@ public class Pacman : MonoBehaviour
         Move();
         if (Input.GetKey(KeyCode.UpArrow)) {
             direction = Vector2.up;
+            transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
+            transform.localRotation = Quaternion.Euler(0, 0, 90);
         } else if (Input.GetKey(KeyCode.DownArrow))
         {
             direction = Vector2.down;
+            transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
+            transform.localRotation = Quaternion.Euler(0, 0, 270);
         } else if (Input.GetKey(KeyCode.LeftArrow))
         {
            direction = Vector2.left;
+           transform.localScale = new Vector3(-2.9f, 2.9f, 2.9f);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         } else if (Input.GetKey(KeyCode.RightArrow))
         {
             direction = Vector2.right;
+            transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        Vector2 dir = direction - (Vector2)transform.position;
-        GetComponent<Animator>().SetFloat("DirX", direction.x);
-        GetComponent<Animator>().SetFloat("DirY", direction.y);
     }
 
     void Move()
