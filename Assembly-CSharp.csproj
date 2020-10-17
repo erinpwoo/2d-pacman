@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Pacdot.cs" />
     <Compile Include="Assets\Scripts\Pacman.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/erinpwoo/Desktop/School/ECE 194M/2D Pacman/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
