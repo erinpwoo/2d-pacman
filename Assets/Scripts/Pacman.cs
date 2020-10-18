@@ -51,6 +51,18 @@ public class Pacman : MonoBehaviour
         {
             scoreText.text = score.ToString();
         }
+
+        Vector2 curr = transform.position;
+        if (curr.x < -3.5f)
+        {
+            curr.x = 3.25f;
+            transform.position = curr;
+        }
+        if (curr.x > 3.5f)
+        {
+            curr.x = -3.25f;
+            transform.position = curr;
+        }
         
     }
 
