@@ -6,6 +6,10 @@ public class Node : MonoBehaviour
 {
     public Node[] neighbors;
     public Vector2[] directions;
+    public Node left;
+    public Node right;
+    public Node up;
+    public Node down;
     // Start is called before the first frame update
     void Start()
     {

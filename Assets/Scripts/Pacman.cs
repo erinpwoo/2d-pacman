@@ -12,6 +12,8 @@ public class Pacman : MonoBehaviour
     public int score;
     public Text scoreText;
 
+    public Node currentNode;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,23 +24,23 @@ public class Pacman : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.I)) {
+        Move(currentNode);
+        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.I)) && currentNode.up) {
             direction = Vector2.up;
             transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
             transform.localRotation = Quaternion.Euler(0, 0, 90);
-        } else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.M))
+        } else if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.M)) && currentNode.down)
         {
             direction = Vector2.down;
             transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
             transform.localRotation = Quaternion.Euler(0, 0, 270);
         }
-        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.J))
+        else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.J)) && currentNode.left)
         {
             direction = Vector2.left;
             transform.localScale = new Vector3(-2.9f, 2.9f, 2.9f);
             transform.localRotation = Quaternion.Euler(0, 0, 0);
-        } else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.K))
+        } else if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.K)) && currentNode.right)
         {
             direction = Vector2.right;
             transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
@@ -66,8 +68,12 @@ public class Pacman : MonoBehaviour
         
     }
 
-    void Move()
+    void Move(Node dest)
     {
-        transform.localPosition += (Vector3) (direction * speed * Time.deltaTime);
+        transform.localPosition += (Vector3) (dest.transform.position * speed * Time.deltaTime);
+        if (dest.transform.position == transform.localPosition)
+        {
+            currentNode = dest;
+        }
     }
 }
