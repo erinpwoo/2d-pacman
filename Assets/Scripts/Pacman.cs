@@ -26,7 +26,7 @@ public class Pacman : MonoBehaviour
     {
         Move(currentNode);
         if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.I)) && currentNode.up) {
-            direction = Vector2.up;
+            direction = currentNode.up;
             transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
             transform.localRotation = Quaternion.Euler(0, 0, 90);
         } else if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.M)) && currentNode.down)
