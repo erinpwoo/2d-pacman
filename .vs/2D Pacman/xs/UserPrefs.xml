@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{B93FA800-932A-FE16-5FA8-334C5C630080}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Pacdot.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Node.cs">
     <Files>
-      <File FileName="Assets/Scripts/Pacman.cs" Line="11" Column="22" />
-      <File FileName="Assets/Scripts/Pacdot.cs" Line="13" Column="33" />
+      <File FileName="Assets/Scripts/Node.cs" Line="5" Column="34" IsPinned="True" />
+      <File FileName="Assets/Scripts/Pacman.cs" Line="60" Column="6" />
+      <File FileName="Assets/Scripts/Pacdot.cs" Line="29" Column="33" />
       <File FileName="../Asteroid Walkthrough/Assets/Scripts/Spaceship.cs" Line="1" Column="1" />
-      <File FileName="../Asteroid Walkthrough/Assets/Scripts/AsteroidHandler.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
