@@ -8,6 +8,7 @@ TagManager:
   - Bonus Pellet
   - Pacdot
   - Start Node
+  - Ghost
   layers:
   - Default
   - TransparentFX

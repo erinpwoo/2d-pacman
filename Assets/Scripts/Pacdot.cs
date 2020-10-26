@@ -7,10 +7,12 @@ public class Pacdot : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject pacman;
+    public GameObject[] ghosts;
     
     void Start()
     {
         pacman = GameObject.FindWithTag("Pacman");
+        ghosts = GameObject.FindGameObjectsWithTag("Ghost");
     }
 
     // Update is called once per frame
@@ -30,6 +32,10 @@ public class Pacdot : MonoBehaviour
             else if (gameObject.CompareTag("Pacdot"))
             {
                 pacman.GetComponent<Pacman>().score += 50;
+                for (int i = 0; i < ghosts.Length; i++)
+                {
+                    ghosts[i].GetComponent<Animator>().SetTrigger("isScatter");
+                }
             }
             gameObject.SetActive(false);
         }

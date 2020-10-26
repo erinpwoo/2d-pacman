@@ -1,15 +1,15 @@
 ﻿<Properties StartupConfiguration="{B93FA800-932A-FE16-5FA8-334C5C630080}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Pacdot.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Ghost.cs">
     <Files>
-      <File FileName="Assets/Scripts/Node.cs" Line="26" Column="9" IsPinned="True" />
-      <File FileName="Assets/Scripts/Pacman.cs" />
-      <File FileName="Assets/Scripts/Pacdot.cs" Line="28" Column="58" />
-      <File FileName="../Asteroid Walkthrough/Assets/Scripts/Spaceship.cs" />
+      <File FileName="Assets/Scripts/Pacdot.cs" Line="14" Column="6" />
+      <File FileName="Assets/Scripts/Node.cs" Line="33" Column="6" />
+      <File FileName="Assets/Scripts/Pacman.cs" Line="78" Column="98" />
+      <File FileName="Assets/Scripts/Ghost.cs" Line="10" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ab613326-9958-41f6-8509-9f7cba11f922" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5a3ee835-8161-4845-979b-24c82e19ef43" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
