@@ -10,10 +10,12 @@ public class Node : MonoBehaviour
     public Node right;
     public Node up;
     public Node down;
+    public GameObject pacman;
     // Start is called before the first frame update
     void Start()
     {
         directions = new Vector2[neighbors.Length];
+        pacman = GameObject.FindWithTag("Pacman");
 
         for (int i = 0; i < neighbors.Length; i++)
         {
@@ -28,5 +30,20 @@ public class Node : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+       if (collision.CompareTag("Pacman"))
+       {
+           if (gameObject.CompareTag("Pacdot"))
+           {
+               pacman.GetComponent<Pacman>().score += 10;
+           } else if (gameObject.CompareTag("Pacdot"))
+           {
+               pacman.GetComponent<Pacman>().score += 50;
+           }
+           gameObject.SetActive(false);
+       }
     }
 }

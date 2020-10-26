@@ -7,12 +7,12 @@ public class Pacman : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D rb;
-    private Vector2 direction = Vector2.zero; // Pacman continues moving in direction of last input
 
     public int score;
     public Text scoreText;
 
     public Node currentNode;
+    public Node destNode;
 
     // Start is called before the first frame update
     void Start()
@@ -24,32 +24,36 @@ public class Pacman : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move(currentNode);
-        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.I)) && currentNode.up) {
-            direction = currentNode.up;
+        Move(destNode);
+        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.I)) && currentNode.up)
+        {
+            destNode = currentNode.up;
             transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
             transform.localRotation = Quaternion.Euler(0, 0, 90);
-        } else if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.M)) && currentNode.down)
+        }
+        else if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.M)) && currentNode.down)
         {
-            direction = Vector2.down;
+            destNode = currentNode.down;
             transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
             transform.localRotation = Quaternion.Euler(0, 0, 270);
         }
         else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.J)) && currentNode.left)
         {
-            direction = Vector2.left;
+            destNode = currentNode.left;
             transform.localScale = new Vector3(-2.9f, 2.9f, 2.9f);
             transform.localRotation = Quaternion.Euler(0, 0, 0);
-        } else if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.K)) && currentNode.right)
+        }
+        else if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.K)) && currentNode.right)
         {
-            direction = Vector2.right;
+            destNode = currentNode.right;
             transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
         if (score < 100)
         {
             scoreText.text = score.ToString("d2");
-        } else
+        }
+        else
         {
             scoreText.text = score.ToString();
         }
@@ -65,13 +69,13 @@ public class Pacman : MonoBehaviour
             curr.x = -3.25f;
             transform.position = curr;
         }
-        
+
     }
 
     void Move(Node dest)
     {
-        transform.localPosition += (Vector3) (dest.transform.position * speed * Time.deltaTime);
-        if (dest.transform.position == transform.localPosition)
+        transform.position = Vector2.MoveTowards(transform.position, dest.transform.position, speed * Time.deltaTime);
+        if (Vector2.Distance((Vector2)dest.transform.position, (Vector2)transform.position) <= .3f)
         {
             currentNode = dest;
         }
