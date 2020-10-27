@@ -28,7 +28,7 @@ public class Ghost : MonoBehaviour
         {
             if (hasBeenReleased)
             {
-                // regular movement
+                RegularMove();
             } else
             {
                 // up-down movement within box state
@@ -52,7 +52,35 @@ public class Ghost : MonoBehaviour
 
     void RegularMove()
     {
+        transform.position = Vector2.MoveTowards(transform.position, destNode.transform.position, speed * Time.deltaTime);
+        if (Vector2.Distance((Vector2)destNode.transform.position, (Vector2)transform.position) <= .01f)
+        {
 
+            bool hasTurned = false;
+            Node temp = currentNode;
+            currentNode = destNode;
+            while (!hasTurned)
+            {
+                int num = Random.Range(0, 4);
+                if (num == 0 && destNode.up && (temp != destNode.up))
+                {
+                    destNode = destNode.up;
+                    hasTurned = true;
+                } else if (num == 1 && destNode.left && (temp != destNode.left))
+                {
+                    destNode = destNode.left;
+                    hasTurned = true;
+                } else if (num == 2 && destNode.right && (temp != destNode.right))
+                {
+                    destNode = destNode.right;
+                    hasTurned = true;
+                } else if (num == 3 && destNode.down && (temp != destNode.down))
+                {
+                    destNode = destNode.down;
+                    hasTurned = true;
+                }
+            }
+        }
     }
 
     void ScatterMove()
