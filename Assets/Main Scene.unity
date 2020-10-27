@@ -991,7 +991,7 @@ PrefabInstance:
         type: 3}
       propertyPath: left
       value: 
-      objectReference: {fileID: 761859563}
+      objectReference: {fileID: 1677585918}
     - target: {fileID: 7103114392777706781, guid: b06475f9d7305402982faf7a9806152a,
         type: 3}
       propertyPath: up
@@ -1006,7 +1006,7 @@ PrefabInstance:
         type: 3}
       propertyPath: right
       value: 
-      objectReference: {fileID: 2109046030}
+      objectReference: {fileID: 669846999}
     - target: {fileID: 8214093845951927287, guid: b06475f9d7305402982faf7a9806152a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4020,7 +4020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05f273c5843e47cf876fa4a7dc37548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeRelease: 0
+  timeBeforeRelease: 120
   timeUntilScatterEnds: 0
   hasBeenReleased: 0
   currentNode: {fileID: 0}
@@ -4859,7 +4859,7 @@ PrefabInstance:
         type: 3}
       propertyPath: left
       value: 
-      objectReference: {fileID: 761859563}
+      objectReference: {fileID: 669846999}
     - target: {fileID: 7103114392777706781, guid: b06475f9d7305402982faf7a9806152a,
         type: 3}
       propertyPath: up
@@ -4874,7 +4874,7 @@ PrefabInstance:
         type: 3}
       propertyPath: right
       value: 
-      objectReference: {fileID: 2109046030}
+      objectReference: {fileID: 1677585918}
     - target: {fileID: 8214093845951927287, guid: b06475f9d7305402982faf7a9806152a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5352,7 +5352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05f273c5843e47cf876fa4a7dc37548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeRelease: 0
+  timeBeforeRelease: 15
   timeUntilScatterEnds: 0
   hasBeenReleased: 0
   currentNode: {fileID: 0}
@@ -14953,7 +14953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05f273c5843e47cf876fa4a7dc37548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeRelease: 0
+  timeBeforeRelease: 1
   timeUntilScatterEnds: 0
   hasBeenReleased: 0
   currentNode: {fileID: 0}

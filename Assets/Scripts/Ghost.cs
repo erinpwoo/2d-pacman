@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    public int timeBeforeRelease;
+    public float timeBeforeRelease;
     public float timeUntilScatterEnds;
     public bool hasBeenReleased;
 
@@ -42,7 +42,7 @@ public class Ghost : MonoBehaviour
                 }
 
                 ScatterMove();
-                
+
             }
             else
             {
@@ -52,6 +52,17 @@ public class Ghost : MonoBehaviour
         {
             // up-down movement within box state
             MoveVertical();
+            if (timeBeforeRelease > 0)
+            {
+                timeBeforeRelease -= Time.deltaTime;
+            } else
+            {
+                if (speed < 0)
+                {
+                    speed = -speed;
+                }
+                hasBeenReleased = true;
+            }
         }
     }
 
