@@ -10,30 +10,46 @@ public class Ghost : MonoBehaviour
     public Node currentNode;
     public Node destNode;
 
-    public int speed;
+    public float speed;
+    public Node homeBase; // each ghost has its own corner it retreats to in scatter mode
+
+    private bool hasMovedBackwards;
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Animator>().SetBool("isScatter", false);
+        hasMovedBackwards = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<Animator>().GetBool("isScatter") == true)
+        if (hasBeenReleased)
         {
-            // scatter state
-        } else
-        {
-            if (hasBeenReleased)
+            if (GetComponent<Animator>().GetBool("isScatter") == true && hasBeenReleased)
+            {
+                // scatter state
+                GetComponent<Animator>().SetFloat("DirX", 0);
+                GetComponent<Animator>().SetFloat("DirY", 0);
+
+                if (!hasMovedBackwards)
+                {
+                    destNode = currentNode;
+                    hasMovedBackwards = true;
+                }
+
+                ScatterMove();
+                
+            }
+            else
             {
                 RegularMove();
-            } else
-            {
-                // up-down movement within box state
-                MoveVertical();
             }
+        } else
+        {
+            // up-down movement within box state
+            MoveVertical();
         }
     }
 
@@ -66,18 +82,39 @@ public class Ghost : MonoBehaviour
                 {
                     destNode = destNode.up;
                     hasTurned = true;
+                    if (!GetComponent<Animator>().GetBool("isScatter"))
+                    {
+                        GetComponent<Animator>().SetFloat("DirX", (Vector2.up).x);
+                        GetComponent<Animator>().SetFloat("DirY", (Vector2.up).y);
+                    }
+                    
                 } else if (num == 1 && destNode.left && (temp != destNode.left))
                 {
                     destNode = destNode.left;
                     hasTurned = true;
+                    if (!GetComponent<Animator>().GetBool("isScatter"))
+                    {
+                        GetComponent<Animator>().SetFloat("DirX", (Vector2.left).x);
+                        GetComponent<Animator>().SetFloat("DirY", (Vector2.left).y);
+                    }
                 } else if (num == 2 && destNode.right && (temp != destNode.right))
                 {
                     destNode = destNode.right;
                     hasTurned = true;
+                    if (!GetComponent<Animator>().GetBool("isScatter"))
+                    {
+                        GetComponent<Animator>().SetFloat("DirX", (Vector2.right).x);
+                        GetComponent<Animator>().SetFloat("DirY", (Vector2.right).y);
+                    }
                 } else if (num == 3 && destNode.down && (temp != destNode.down))
                 {
                     destNode = destNode.down;
                     hasTurned = true;
+                    if (!GetComponent<Animator>().GetBool("isScatter"))
+                    {
+                        GetComponent<Animator>().SetFloat("DirX", (Vector2.down).x);
+                        GetComponent<Animator>().SetFloat("DirY", (Vector2.down).y);
+                    }
                 }
             }
         }
@@ -85,6 +122,7 @@ public class Ghost : MonoBehaviour
 
     void ScatterMove()
     {
-
+        if (speed != .7f) speed = .7f;
+        RegularMove();
     }
 }

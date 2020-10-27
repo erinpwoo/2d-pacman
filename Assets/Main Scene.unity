@@ -4025,6 +4025,7 @@ MonoBehaviour:
   currentNode: {fileID: 0}
   destNode: {fileID: 739983407}
   speed: 1
+  homeBase: {fileID: 1756967011}
 --- !u!1001 &456488604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5355,6 +5356,7 @@ MonoBehaviour:
   currentNode: {fileID: 0}
   destNode: {fileID: 739983407}
   speed: 1
+  homeBase: {fileID: 290554682}
 --- !u!1001 &553820314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14954,6 +14956,7 @@ MonoBehaviour:
   currentNode: {fileID: 0}
   destNode: {fileID: 739983407}
   speed: 1
+  homeBase: {fileID: 1991246510}
 --- !u!1001 &1479851651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20104,6 +20107,7 @@ MonoBehaviour:
   currentNode: {fileID: 1677585918}
   destNode: {fileID: 1677585918}
   speed: 1
+  homeBase: {fileID: 1734089837}
 --- !u!1001 &1961308924
 PrefabInstance:
   m_ObjectHideFlags: 0
