@@ -34,7 +34,7 @@ public class Pacdot : MonoBehaviour
                 pacman.GetComponent<Pacman>().score += 50;
                 for (int i = 0; i < ghosts.Length; i++)
                 {
-                    ghosts[i].GetComponent<Animator>().SetTrigger("isScatter");
+                    ghosts[i].GetComponent<Animator>().SetBool("isScatter", true);
                 }
             }
             gameObject.SetActive(false);
