@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ghost : MonoBehaviour
 {
     public int timeBeforeRelease;
+    public float timeUntilScatterEnds;
     public bool hasBeenReleased;
 
     public Node currentNode;
@@ -13,13 +14,13 @@ public class Ghost : MonoBehaviour
     public float speed;
     public Node homeBase; // each ghost has its own corner it retreats to in scatter mode
 
-    private bool hasMovedBackwards;
+    private bool hasStartedScatter;
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Animator>().SetBool("isScatter", false);
-        hasMovedBackwards = false;
+        hasStartedScatter = false;
     }
 
     // Update is called once per frame
@@ -33,10 +34,11 @@ public class Ghost : MonoBehaviour
                 GetComponent<Animator>().SetFloat("DirX", 0);
                 GetComponent<Animator>().SetFloat("DirY", 0);
 
-                if (!hasMovedBackwards)
+                if (!hasStartedScatter)
                 {
                     destNode = currentNode;
-                    hasMovedBackwards = true;
+                    timeUntilScatterEnds = 7f;
+                    hasStartedScatter = true;
                 }
 
                 ScatterMove();
@@ -64,6 +66,29 @@ public class Ghost : MonoBehaviour
         {
             speed = -speed;
         }
+        if (GetComponent<Animator>().GetBool("isScatter") == true)
+        {
+            if (!hasStartedScatter)
+            {
+                timeUntilScatterEnds = 7f;
+                hasStartedScatter = true;
+                GetComponent<Animator>().SetFloat("DirY", 0);
+            } else {
+                if (timeUntilScatterEnds > 0)
+                {
+                    timeUntilScatterEnds -= Time.deltaTime;
+                }
+                else
+                {
+                    GetComponent<Animator>().SetBool("isScatter", false);
+                    GetComponent<Animator>().SetFloat("DirX", (Vector2.right).x);
+                    GetComponent<Animator>().SetFloat("DirY", (Vector2.right).y);
+                    hasStartedScatter = false;
+                    timeUntilScatterEnds = 7f;
+                }
+            }
+        }
+        
     }
 
     void RegularMove()
@@ -123,6 +148,15 @@ public class Ghost : MonoBehaviour
     void ScatterMove()
     {
         if (speed != .7f) speed = .7f;
+        if (timeUntilScatterEnds > 0)
+        {
+            timeUntilScatterEnds -= Time.deltaTime;
+        } else
+        {
+            GetComponent<Animator>().SetBool("isScatter", false);
+            timeUntilScatterEnds = 7f;
+            hasStartedScatter = false;
+        }
         RegularMove();
     }
 }

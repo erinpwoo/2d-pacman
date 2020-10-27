@@ -4021,6 +4021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeRelease: 0
+  timeUntilScatterEnds: 0
   hasBeenReleased: 0
   currentNode: {fileID: 0}
   destNode: {fileID: 739983407}
@@ -5352,6 +5353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeRelease: 0
+  timeUntilScatterEnds: 0
   hasBeenReleased: 0
   currentNode: {fileID: 0}
   destNode: {fileID: 739983407}
@@ -14952,6 +14954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeRelease: 0
+  timeUntilScatterEnds: 0
   hasBeenReleased: 0
   currentNode: {fileID: 0}
   destNode: {fileID: 739983407}
@@ -20103,6 +20106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeRelease: 0
+  timeUntilScatterEnds: 0
   hasBeenReleased: 1
   currentNode: {fileID: 1677585918}
   destNode: {fileID: 1677585918}
