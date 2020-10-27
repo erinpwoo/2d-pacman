@@ -31,19 +31,4 @@ public class Node : MonoBehaviour
     {
         
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-       if (collision.CompareTag("Pacman"))
-       {
-           if (gameObject.CompareTag("Pacdot"))
-           {
-               pacman.GetComponent<Pacman>().score += 10;
-           } else if (gameObject.CompareTag("Pacdot"))
-           {
-               pacman.GetComponent<Pacman>().score += 50;
-           }
-           gameObject.SetActive(false);
-       }
-    }
 }

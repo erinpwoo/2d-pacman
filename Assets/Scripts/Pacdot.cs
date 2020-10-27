@@ -29,7 +29,7 @@ public class Pacdot : MonoBehaviour
             {
                 pacman.GetComponent<Pacman>().score += 10;
             }
-            else if (gameObject.CompareTag("Pacdot"))
+            else if (gameObject.CompareTag("Bonus Pellet"))
             {
                 pacman.GetComponent<Pacman>().score += 50;
                 for (int i = 0; i < ghosts.Length; i++)

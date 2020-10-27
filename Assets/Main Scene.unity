@@ -3918,6 +3918,7 @@ GameObject:
   - component: {fileID: 455480528}
   - component: {fileID: 455480530}
   - component: {fileID: 455480529}
+  - component: {fileID: 455480531}
   m_Layer: 0
   m_Name: Clyde
   m_TagString: Ghost
@@ -4006,6 +4007,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &455480531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455480527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05f273c5843e47cf876fa4a7dc37548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &456488604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5130,6 +5143,7 @@ GameObject:
   - component: {fileID: 550478646}
   - component: {fileID: 550478648}
   - component: {fileID: 550478647}
+  - component: {fileID: 550478649}
   m_Layer: 0
   m_Name: Inky
   m_TagString: Ghost
@@ -5218,6 +5232,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &550478649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550478645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05f273c5843e47cf876fa4a7dc37548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &553820314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14693,6 +14719,7 @@ GameObject:
   - component: {fileID: 1478119327}
   - component: {fileID: 1478119329}
   - component: {fileID: 1478119328}
+  - component: {fileID: 1478119330}
   m_Layer: 0
   m_Name: Pinky
   m_TagString: Ghost
@@ -14781,6 +14808,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1478119330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478119326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05f273c5843e47cf876fa4a7dc37548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1479851651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19825,6 +19864,7 @@ GameObject:
   - component: {fileID: 1956894458}
   - component: {fileID: 1956894460}
   - component: {fileID: 1956894459}
+  - component: {fileID: 1956894461}
   m_Layer: 0
   m_Name: Blinky
   m_TagString: Ghost
@@ -19913,6 +19953,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1956894461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956894457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05f273c5843e47cf876fa4a7dc37548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1961308924
 PrefabInstance:
   m_ObjectHideFlags: 0
