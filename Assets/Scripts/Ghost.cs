@@ -15,53 +15,60 @@ public class Ghost : MonoBehaviour
     public Node homeBase; // each ghost has its own corner it retreats to in scatter mode
 
     private bool hasStartedScatter;
+    public bool pacmanDied;
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Animator>().SetBool("isScatter", false);
         hasStartedScatter = false;
+        pacmanDied = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hasBeenReleased)
+        if (!pacmanDied)
         {
-            if (GetComponent<Animator>().GetBool("isScatter") == true && hasBeenReleased)
+            if (hasBeenReleased)
             {
-                // scatter state
-                GetComponent<Animator>().SetFloat("DirX", 0);
-                GetComponent<Animator>().SetFloat("DirY", 0);
-
-                if (!hasStartedScatter)
+                if (GetComponent<Animator>().GetBool("isScatter") == true && hasBeenReleased)
                 {
-                    destNode = currentNode;
-                    timeUntilScatterEnds = 7f;
-                    hasStartedScatter = true;
+                    // scatter state
+                    GetComponent<Animator>().SetFloat("DirX", 0);
+                    GetComponent<Animator>().SetFloat("DirY", 0);
+
+                    if (!hasStartedScatter)
+                    {
+                        destNode = currentNode;
+                        timeUntilScatterEnds = 7f;
+                        hasStartedScatter = true;
+                    }
+
+                    ScatterMove();
+
                 }
-
-                ScatterMove();
-
+                else
+                {
+                    RegularMove();
+                }
             }
             else
             {
-                RegularMove();
-            }
-        } else
-        {
-            // up-down movement within box state
-            MoveVertical();
-            if (timeBeforeRelease > 0)
-            {
-                timeBeforeRelease -= Time.deltaTime;
-            } else
-            {
-                if (speed < 0)
+                // up-down movement within box state
+                MoveVertical();
+                if (timeBeforeRelease > 0)
                 {
-                    speed = -speed;
+                    timeBeforeRelease -= Time.deltaTime;
                 }
-                hasBeenReleased = true;
+                else
+                {
+                    if (speed < 0)
+                    {
+                        speed = -speed;
+                    }
+                    hasBeenReleased = true;
+                }
             }
         }
     }
@@ -165,6 +172,7 @@ public class Ghost : MonoBehaviour
         } else
         {
             GetComponent<Animator>().SetBool("isScatter", false);
+            GetComponent<Animator>().ResetTrigger("isScatterAgain");
             timeUntilScatterEnds = 7f;
             hasStartedScatter = false;
         }
