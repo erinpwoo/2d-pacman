@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
         // flashing maze here
         pacman.SetActive(false);
         isNextLevel = true;
+        pelletCount = 240;
         for (int i = 0; i < ghosts.Length; i++)
         {
             ghosts[i].SetActive(false);
