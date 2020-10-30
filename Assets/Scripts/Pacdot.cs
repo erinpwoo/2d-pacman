@@ -8,8 +8,8 @@ public class Pacdot : MonoBehaviour
 
     public GameObject pacman;
     public GameObject[] ghosts;
-    
-    void Start()
+
+    private void Awake()
     {
         pacman = GameObject.FindWithTag("Pacman");
         ghosts = GameObject.FindGameObjectsWithTag("Ghost");

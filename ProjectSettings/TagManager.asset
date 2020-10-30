@@ -9,6 +9,8 @@ TagManager:
   - Pacdot
   - Start Node
   - Ghost
+  - Player One
+  - Ready
   layers:
   - Default
   - TransparentFX

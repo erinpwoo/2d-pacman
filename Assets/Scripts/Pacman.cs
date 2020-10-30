@@ -20,6 +20,8 @@ public class Pacman : MonoBehaviour
 
     public int lives;
 
+    public bool isFrozen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +29,13 @@ public class Pacman : MonoBehaviour
         rb.position = new Vector2(0, -2);
         ghosts = GameObject.FindGameObjectsWithTag("Ghost");
         justDied = false;
+        isFrozen = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!justDied)
+        if (!justDied && !isFrozen)
         {
             Move(destNode);
             if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.I)) && currentNode.up)
@@ -96,7 +99,6 @@ public class Pacman : MonoBehaviour
     {
         if (collision.CompareTag("Ghost"))
         {
-            print(collision.tag);
             if (collision.GetComponent<Animator>().GetBool("isScatter"))
             {
                 // send ghost back to haunted house

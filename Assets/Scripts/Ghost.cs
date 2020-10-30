@@ -17,18 +17,21 @@ public class Ghost : MonoBehaviour
     private bool hasStartedScatter;
     public bool pacmanDied;
 
+    public bool isFrozen;
+
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Animator>().SetBool("isScatter", false);
         hasStartedScatter = false;
         pacmanDied = false;
+        isFrozen = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!pacmanDied)
+        if (!pacmanDied && !isFrozen)
         {
             if (hasBeenReleased)
             {
