@@ -95,8 +95,9 @@ public class GameManager : MonoBehaviour
     public IEnumerator RestartGame()
     {
         pacman.GetComponent<Animator>().ResetTrigger("killPacman");
-        pacman.GetComponent<Transform>().localScale = new Vector2(2.9f, 2.9f);
-        pacman.GetComponent<Pacman>().destNode = pacman.GetComponent<Pacman>().startNode;
+        pacman.GetComponent<Transform>().localScale = new Vector3(2.9f, 2.9f, 2.9f);
+        pacman.GetComponent<Transform>().transform.localRotation = Quaternion.Euler(0, 0, 0);
+        pacman.GetComponent<Pacman>().destNode = null;
         pacman.GetComponent<Pacman>().currentNode = pacman.GetComponent<Pacman>().startNode;
         for (int i = 0; i < ghosts.Length; i++)
         {

@@ -211,13 +211,8 @@ public class Pacman : MonoBehaviour
         return distFromCurrNode >= distFromTarget;
     }
 
-    void Move(/*Node dest*/)
+    void Move()
     {
-        //transform.position = Vector2.MoveTowards(transform.position, dest.transform.position, speed * Time.deltaTime);
-        //if (Vector2.Distance((Vector2)dest.transform.position, (Vector2)transform.position) <= .25f)
-        //{
-        //    currentNode = dest;
-        //}
 
         if ((destNode != currentNode) && destNode)
         {
@@ -225,7 +220,7 @@ public class Pacman : MonoBehaviour
             {
 
                 currentNode = destNode;
-                transform.position = currentNode.transform.position;
+                transform.localPosition = currentNode.transform.position;
                 if (currentNode == leftEnd || currentNode == rightEnd)
                 {
                     MoveToOtherSide(currentNode);

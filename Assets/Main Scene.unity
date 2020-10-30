@@ -1061,7 +1061,7 @@ PrefabInstance:
         type: 3}
       propertyPath: right
       value: 
-      objectReference: {fileID: 669846999}
+      objectReference: {fileID: 0}
     - target: {fileID: 8214093845951927287, guid: b06475f9d7305402982faf7a9806152a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15920,7 +15920,7 @@ PrefabInstance:
         type: 3}
       propertyPath: left
       value: 
-      objectReference: {fileID: 1899517917}
+      objectReference: {fileID: 0}
     - target: {fileID: 7103114392777706781, guid: b06475f9d7305402982faf7a9806152a,
         type: 3}
       propertyPath: up
@@ -19825,8 +19825,8 @@ MonoBehaviour:
   fourHundredPts: {fileID: 21300002, guid: caea7862e722f4c9e8f8e73bd17b01a7, type: 3}
   eightHundredPts: {fileID: 21300004, guid: caea7862e722f4c9e8f8e73bd17b01a7, type: 3}
   sixteenHundredPts: {fileID: 21300006, guid: caea7862e722f4c9e8f8e73bd17b01a7, type: 3}
-  leftEnd: {fileID: 0}
-  rightEnd: {fileID: 0}
+  leftEnd: {fileID: 1488841627}
+  rightEnd: {fileID: 1899517917}
 --- !u!1001 &1790836208
 PrefabInstance:
   m_ObjectHideFlags: 0
