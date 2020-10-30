@@ -9,7 +9,7 @@ public class Node : MonoBehaviour
     public Node right;
     public Node up;
     public Node down;
-    public GameObject pacman;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +18,6 @@ public class Node : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 }

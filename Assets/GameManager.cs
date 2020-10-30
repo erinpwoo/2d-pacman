@@ -1,22 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int pelletCount = 265;
+    public int pelletCount = 240;
     public int currentLevel = 1;
     public int lives = 3;
 
     public GameObject[] ghosts;
     public GameObject pacman;
-
+     
     public GameObject playerOne;
     public GameObject ready;
 
     public GameObject life1;
     public GameObject life2;
     public GameObject life3;
+
+    public GameObject gameOver;
+    public GameObject pressAnyKey;
+
+    public bool isNextLevel;
+
+    bool isGameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -30,13 +39,24 @@ public class GameManager : MonoBehaviour
         life2 = GameObject.Find("Life 2");
         life3 = GameObject.Find("Life 3");
 
+        gameOver.SetActive(false);
+        pressAnyKey.SetActive(false);
+        isNextLevel = false;
+        isGameOver = false;
         StartCoroutine(RestartGame());
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (isGameOver)
+        {
+            if (Input.anyKey)
+            {
+                SceneManager.LoadScene("Main Scene");
+            }
+            
+        }
     }
 
     public void DecrementPelletCount()
@@ -51,6 +71,12 @@ public class GameManager : MonoBehaviour
     void NextLevel()
     {
         // flashing maze here
+        pacman.SetActive(false);
+        isNextLevel = true;
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            ghosts[i].SetActive(false);
+        }
         StartCoroutine(RestartGame());
     }
 
@@ -61,10 +87,17 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator RestartGame()
     {
+        pacman.GetComponent<Animator>().ResetTrigger("killPacman");
+        pacman.GetComponent<Transform>().localScale = new Vector2(2.9f, 2.9f);
+        pacman.GetComponent<Pacman>().destNode = pacman.GetComponent<Pacman>().startNode;
+        pacman.GetComponent<Pacman>().currentNode = pacman.GetComponent<Pacman>().startNode;
         for (int i = 0; i < ghosts.Length; i++)
         {
             ghosts[i].GetComponent<Transform>().position = ghosts[i].GetComponent<Ghost>().initPos;
-            ghosts[i].SetActive(false);
+            if (ghosts[i].activeSelf)
+            {
+                ghosts[i].SetActive(false);
+            }
         }
         playerOne.SetActive(true);
         ready.SetActive(true);
@@ -112,10 +145,19 @@ public class GameManager : MonoBehaviour
         {
             life1.SetActive(false);
         }
+        isNextLevel = false;
     }
 
     public void GameOver()
     {
+        pacman.SetActive(false);
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            ghosts[i].SetActive(false);
+        }
+        isGameOver = true;
+        gameOver.SetActive(true);
+        pressAnyKey.SetActive(true);
 
     }
 }

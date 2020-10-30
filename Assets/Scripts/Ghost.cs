@@ -19,18 +19,28 @@ public class Ghost : MonoBehaviour
     public bool pacmanDied;
 
     public bool isFrozen;
+    public bool isGoingBackToHauntedHouse;
 
     public Vector2 initPos;
 
     public Node ghostStart;
 
+    public Sprite leftEye;
+    public Sprite rightEye;
+    public Sprite downEye;
+    public Sprite upEye;
+
+    public Sprite defaultSprite;
+    public float eyeSpeed;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GetComponent<Animator>().SetBool("isScatter", false);
         hasStartedScatter = false;
         pacmanDied = false;
         isFrozen = true;
+        isGoingBackToHauntedHouse = false;
         ResetCounterBeforeRelease();
     }
 
@@ -42,7 +52,7 @@ public class Ghost : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!pacmanDied && !isFrozen)
+        if (!pacmanDied && !isFrozen && !isGoingBackToHauntedHouse)
         {
             if (hasBeenReleased)
             {
@@ -69,6 +79,11 @@ public class Ghost : MonoBehaviour
             }
             else
             {
+                if (GetComponent<Animator>().GetBool("isScatter")) {
+                    // scatter state
+                    GetComponent<Animator>().SetFloat("DirX", 0);
+                    GetComponent<Animator>().SetFloat("DirY", 0);
+                }
                 // up-down movement within box state
                 MoveVertical();
                 if (counterBeforeRelease > 0)
@@ -84,6 +99,10 @@ public class Ghost : MonoBehaviour
                     hasBeenReleased = true;
                 }
             }
+        }
+        if (isGoingBackToHauntedHouse)
+        {
+            SendBackToHauntedHouse();
         }
     }
 
@@ -175,6 +194,123 @@ public class Ghost : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SendBackToHauntedHouse()
+    {
+        if (GetComponent<Animator>().isActiveAndEnabled)
+        {
+            GetComponent<Animator>().enabled = false;
+        }
+        
+        transform.position = Vector2.MoveTowards(transform.position, destNode.transform.position, eyeSpeed * Time.deltaTime);
+        if (Vector2.Distance((Vector2)destNode.transform.position, (Vector2)transform.position) <= .01f)
+        {
+            Node prev = currentNode;
+            currentNode = destNode;
+            float min = Mathf.Infinity;
+
+            Node temp = currentNode;
+            if (currentNode.left && (prev != currentNode.left))
+            {
+                if (Vector2.Distance((Vector2)ghostStart.transform.position, (Vector2)currentNode.left.GetComponent<Transform>().position) <= min)
+                {
+                    min = Vector2.Distance((Vector2)ghostStart.transform.position, (Vector2)currentNode.left.GetComponent<Transform>().position);
+                    temp = currentNode.left;
+                }
+            }
+            if (currentNode.right && (prev != currentNode.right))
+            {
+                if (Vector2.Distance((Vector2)ghostStart.transform.position, (Vector2)currentNode.right.GetComponent<Transform>().position) <= min)
+                {
+                    min = Vector2.Distance((Vector2)ghostStart.transform.position, (Vector2)currentNode.right.GetComponent<Transform>().position);
+                    temp = currentNode.right;
+                }
+            }
+            if (currentNode.up && (prev != currentNode.up))
+            {
+                if (Vector2.Distance((Vector2)ghostStart.transform.position, (Vector2)currentNode.up.GetComponent<Transform>().position) <= min)
+                {
+                    min = Vector2.Distance((Vector2)ghostStart.transform.position, (Vector2)currentNode.up.GetComponent<Transform>().position);
+                    temp = currentNode.up;
+                }
+            }
+            if (currentNode.down && (prev != currentNode.left))
+            {
+                if (Vector2.Distance((Vector2)ghostStart.transform.position, (Vector2)currentNode.down.GetComponent<Transform>().position) <= min)
+                {
+                    temp = currentNode.down;
+                }
+            }
+
+            if (temp == currentNode)
+            {
+                while (temp != currentNode)
+                {
+                    int num = Random.Range(0, 4);
+                    if (num == 0 && currentNode.up)
+                    {
+                        temp = currentNode.up;
+                    }
+                    else if (num == 1 && currentNode.down)
+                    {
+                        temp = currentNode.down;
+                    }
+                    else if (num == 2 && currentNode.left)
+                    {
+                        temp = currentNode.left;
+                    }
+                    else if (num == 3 && currentNode.right)
+                    {
+                        temp = currentNode.right;
+                    }
+                }
+
+            }
+
+            if (temp == currentNode.right)
+            {
+                GetComponent<SpriteRenderer>().sprite = rightEye;
+            } else if (temp == currentNode.left)
+            {
+                GetComponent<SpriteRenderer>().sprite = leftEye;
+            } else if (temp == currentNode.down)
+            {
+                GetComponent<SpriteRenderer>().sprite = downEye;
+            } else
+            {
+                GetComponent<SpriteRenderer>().sprite = upEye;
+            }
+
+            destNode = temp;
+        }
+
+        if (Vector2.Distance((Vector2)currentNode.transform.position, (Vector2)ghostStart.transform.position) <= .45f)
+        {
+            GetComponent<Transform>().position = new Vector2(-.12f, .36f);
+            isGoingBackToHauntedHouse = false;
+            GetComponent<Animator>().enabled = true;
+            GetComponent<Collider2D>().enabled = true;
+            destNode = ghostStart;
+            currentNode = null;
+            GetComponent<Animator>().SetTrigger("isBackToNormal");
+            GetComponent<Animator>().SetBool("isScatter", false);
+            GetComponent<Animator>().ResetTrigger("isScatterAgain");
+            timeUntilScatterEnds = 7f;
+            StartCoroutine(FreezeGhost());
+            return;
+        }
+    }
+
+    IEnumerator FreezeGhost()
+    {
+        
+        hasBeenReleased = false;
+        hasStartedScatter = false;
+        isFrozen = true;
+        yield return new WaitForSeconds(2f);
+        isFrozen = false;
+        GetComponent<Animator>().ResetTrigger("isBackToNormal");
     }
 
     void ScatterMove()

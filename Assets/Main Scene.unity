@@ -535,7 +535,6 @@ MonoBehaviour:
   right: {fileID: 571241553}
   up: {fileID: 0}
   down: {fileID: 1935538418}
-  pacman: {fileID: 0}
 --- !u!1001 &25667990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1224,7 +1223,6 @@ MonoBehaviour:
   right: {fileID: 1056337444}
   up: {fileID: 0}
   down: {fileID: 572001584}
-  pacman: {fileID: 0}
 --- !u!1001 &110902272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1866,7 +1864,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 1149310878}
-  pacman: {fileID: 0}
 --- !u!1001 &192511524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2050,7 +2047,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 1677585918}
-  pacman: {fileID: 0}
 --- !u!1001 &225713274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2234,7 +2230,6 @@ MonoBehaviour:
   right: {fileID: 729715622}
   up: {fileID: 0}
   down: {fileID: 361082605}
-  pacman: {fileID: 0}
 --- !u!1001 &247049692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2418,7 +2413,6 @@ MonoBehaviour:
   right: {fileID: 1955849841}
   up: {fileID: 162000340}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &285277840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2602,7 +2596,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1130536567}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &305923870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2706,7 +2699,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1043416429}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &308566336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2890,7 +2882,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &325080546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3156,6 +3147,83 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 339038997}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &354992194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 354992195}
+  - component: {fileID: 354992197}
+  - component: {fileID: 354992196}
+  m_Layer: 5
+  m_Name: Game Over
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &354992195
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354992194}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1093700451}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 436.96735, y: 64.91483}
+  m_Pivot: {x: 0.5256239, y: 0.5}
+--- !u!114 &354992196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354992194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e4fdf49d0a4c544e3a9a1a341e3b33b0, type: 3}
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: GAME OVER
+--- !u!222 &354992197
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354992194}
+  m_CullTransparentMesh: 0
 --- !u!1001 &361082602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3259,7 +3327,6 @@ MonoBehaviour:
   right: {fileID: 1130536567}
   up: {fileID: 246384829}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &370526018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4378,8 +4445,15 @@ MonoBehaviour:
   homeBase: {fileID: 1756967011}
   pacmanDied: 0
   isFrozen: 0
+  isGoingBackToHauntedHouse: 0
   initPos: {x: -0.12, y: 0.36}
   ghostStart: {fileID: 739983407}
+  leftEye: {fileID: 21300002, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  rightEye: {fileID: 21300000, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  downEye: {fileID: 21300006, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  upEye: {fileID: 21300004, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  defaultSprite: {fileID: 21300020, guid: 9f10b4e929faf4de0b7d925525369641, type: 3}
+  eyeSpeed: 2
 --- !u!61 &455480532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4909,7 +4983,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 729715622}
-  pacman: {fileID: 0}
 --- !u!1001 &476353675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5013,7 +5086,6 @@ MonoBehaviour:
   right: {fileID: 1314478333}
   up: {fileID: 1963978019}
   down: {fileID: 950722832}
-  pacman: {fileID: 0}
 --- !u!1001 &488760993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5804,8 +5876,15 @@ MonoBehaviour:
   homeBase: {fileID: 290554682}
   pacmanDied: 0
   isFrozen: 0
+  isGoingBackToHauntedHouse: 0
   initPos: {x: 0.358, y: 0.36}
   ghostStart: {fileID: 739983407}
+  leftEye: {fileID: 21300002, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  rightEye: {fileID: 21300000, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  downEye: {fileID: 21300006, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  upEye: {fileID: 21300004, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  defaultSprite: {fileID: 21300004, guid: 9f10b4e929faf4de0b7d925525369641, type: 3}
+  eyeSpeed: 3
 --- !u!61 &550478650
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5935,7 +6014,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1280403826}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &562314174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6119,7 +6197,6 @@ MonoBehaviour:
   right: {fileID: 1543065188}
   up: {fileID: 1771240411}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &572001581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6223,7 +6300,6 @@ MonoBehaviour:
   right: {fileID: 221615096}
   up: {fileID: 96378555}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &600177369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6486,7 +6562,6 @@ MonoBehaviour:
   right: {fileID: 1694418077}
   up: {fileID: 1308222085}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &629064444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6670,7 +6745,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 1056337444}
-  pacman: {fileID: 0}
 --- !u!1 &646958875
 GameObject:
   m_ObjectHideFlags: 0
@@ -7669,7 +7743,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 476344485}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &734024582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8031,7 +8104,6 @@ MonoBehaviour:
   right: {fileID: 1899517917}
   up: {fileID: 950722832}
   down: {fileID: 1955849841}
-  pacman: {fileID: 0}
 --- !u!1001 &770936156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8215,7 +8287,6 @@ MonoBehaviour:
   right: {fileID: 265021547}
   up: {fileID: 0}
   down: {fileID: 1543065188}
-  pacman: {fileID: 0}
 --- !u!1001 &793572676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8319,7 +8390,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1955849841}
   down: {fileID: 2031603535}
-  pacman: {fileID: 0}
 --- !u!1001 &799738338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9148,7 +9218,6 @@ MonoBehaviour:
   right: {fileID: 476353678}
   up: {fileID: 1442548320}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!114 &925769614 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7103114392777706781, guid: b06475f9d7305402982faf7a9806152a,
@@ -9350,7 +9419,6 @@ MonoBehaviour:
   right: {fileID: 2054627496}
   up: {fileID: 476353678}
   down: {fileID: 761859563}
-  pacman: {fileID: 0}
 --- !u!1001 &952885422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9903,7 +9971,6 @@ MonoBehaviour:
   right: {fileID: 793572679}
   up: {fileID: 0}
   down: {fileID: 305923873}
-  pacman: {fileID: 0}
 --- !u!1001 &1045190493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10087,7 +10154,6 @@ MonoBehaviour:
   right: {fileID: 1076059949}
   up: {fileID: 2109046030}
   down: {fileID: 1280403826}
-  pacman: {fileID: 0}
 --- !u!1001 &1052679660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10191,7 +10257,6 @@ MonoBehaviour:
   right: {fileID: 1086272654}
   up: {fileID: 0}
   down: {fileID: 669846999}
-  pacman: {fileID: 0}
 --- !u!1001 &1056337441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10295,7 +10360,6 @@ MonoBehaviour:
   right: {fileID: 918609083}
   up: {fileID: 635926937}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1057217358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10719,7 +10783,6 @@ MonoBehaviour:
   right: {fileID: 1149310878}
   up: {fileID: 0}
   down: {fileID: 1756967011}
-  pacman: {fileID: 0}
 --- !u!1001 &1072330336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10823,7 +10886,6 @@ MonoBehaviour:
   right: {fileID: 96378555}
   up: {fileID: 1906755956}
   down: {fileID: 2071521013}
-  pacman: {fileID: 0}
 --- !u!1001 &1073755130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11007,7 +11069,6 @@ MonoBehaviour:
   right: {fileID: 1771240411}
   up: {fileID: 1690783146}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1086272651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11111,7 +11172,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1703486647}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1 &1093700447
 GameObject:
   m_ObjectHideFlags: 0
@@ -11205,6 +11265,8 @@ RectTransform:
   - {fileID: 1338043075}
   - {fileID: 400973617}
   - {fileID: 646958876}
+  - {fileID: 354992195}
+  - {fileID: 1218304825}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11876,7 +11938,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 290554682}
-  pacman: {fileID: 0}
 --- !u!1001 &1132039811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12140,7 +12201,6 @@ MonoBehaviour:
   right: {fileID: 553820317}
   up: {fileID: 182917556}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1152064135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12724,7 +12784,6 @@ MonoBehaviour:
   right: {fileID: 1047054539}
   up: {fileID: 0}
   down: {fileID: 2426801233913399391}
-  pacman: {fileID: 0}
 --- !u!1001 &1191961388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12828,7 +12887,6 @@ MonoBehaviour:
   right: {fileID: 2071521013}
   up: {fileID: 1676333972}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1193982732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13149,6 +13207,83 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1215838444}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1218304824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1218304825}
+  - component: {fileID: 1218304827}
+  - component: {fileID: 1218304826}
+  m_Layer: 5
+  m_Name: Continue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1218304825
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218304824}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1093700451}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -70}
+  m_SizeDelta: {x: 540.9816, y: 23.316116}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1218304826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218304824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e4fdf49d0a4c544e3a9a1a341e3b33b0, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Press any button to start a new game
+--- !u!222 &1218304827
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218304824}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1250273074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13652,7 +13787,6 @@ MonoBehaviour:
   right: {fileID: 10150367}
   up: {fileID: 1047054539}
   down: {fileID: 553820317}
-  pacman: {fileID: 0}
 --- !u!1001 &1286062337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14174,7 +14308,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 620914335}
-  pacman: {fileID: 0}
 --- !u!1001 &1314478330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14278,7 +14411,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1734089837}
   down: {fileID: 2054627496}
-  pacman: {fileID: 0}
 --- !u!1001 &1335729145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15517,7 +15649,6 @@ MonoBehaviour:
   right: {fileID: 1963978019}
   up: {fileID: 0}
   down: {fileID: 918609083}
-  pacman: {fileID: 0}
 --- !u!1001 &1448974765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16066,8 +16197,15 @@ MonoBehaviour:
   homeBase: {fileID: 1991246510}
   pacmanDied: 0
   isFrozen: 0
-  initPos: {x: -0.6, y: 0.36}
+  isGoingBackToHauntedHouse: 0
+  initPos: {x: -0.6, y: 0.3}
   ghostStart: {fileID: 739983407}
+  leftEye: {fileID: 21300002, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  rightEye: {fileID: 21300000, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  downEye: {fileID: 21300006, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  upEye: {fileID: 21300004, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  defaultSprite: {fileID: 21300036, guid: 9f10b4e929faf4de0b7d925525369641, type: 3}
+  eyeSpeed: 3
 --- !u!61 &1478119331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16535,7 +16673,6 @@ MonoBehaviour:
   right: {fileID: 1043416429}
   up: {fileID: 777946906}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1547585226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17634,7 +17771,6 @@ MonoBehaviour:
   right: {fileID: 305923873}
   up: {fileID: 0}
   down: {fileID: 1694418077}
-  pacman: {fileID: 0}
 --- !u!1 &1646249647
 GameObject:
   m_ObjectHideFlags: 0
@@ -17958,7 +18094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7f7099912494a7da3e727c7fcc98bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pelletCount: 265
+  pelletCount: 240
   currentLevel: 1
   lives: 3
   ghosts: []
@@ -17968,6 +18104,9 @@ MonoBehaviour:
   life1: {fileID: 0}
   life2: {fileID: 0}
   life3: {fileID: 0}
+  gameOver: {fileID: 354992194}
+  pressAnyKey: {fileID: 1218304824}
+  isNextLevel: 0
 --- !u!4 &1658005714
 Transform:
   m_ObjectHideFlags: 0
@@ -18239,7 +18378,6 @@ MonoBehaviour:
   right: {fileID: 1072330339}
   up: {fileID: 1991246510}
   down: {fileID: 1191961391}
-  pacman: {fileID: 0}
 --- !u!114 &1677585918 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7103114392777706781, guid: b06475f9d7305402982faf7a9806152a,
@@ -18459,7 +18597,6 @@ MonoBehaviour:
   right: {fileID: 290554682}
   up: {fileID: 1635989207}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1701903260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18643,7 +18780,6 @@ MonoBehaviour:
   right: {fileID: 476353678}
   up: {fileID: 0}
   down: {fileID: 1086272654}
-  pacman: {fileID: 0}
 --- !u!1001 &1706765760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19147,7 +19283,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 1314478333}
-  pacman: {fileID: 0}
 --- !u!1001 &1737354599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19411,7 +19546,6 @@ MonoBehaviour:
   right: {fileID: 620914335}
   up: {fileID: 1070853115}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1771240408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19515,7 +19649,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 571241553}
-  pacman: {fileID: 0}
 --- !u!1 &1787598284
 GameObject:
   m_ObjectHideFlags: 0
@@ -19678,6 +19811,11 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   initPos: {x: 0, y: -2}
   startNode: {fileID: 1835470908}
+  ghostsCaught: 0
+  twoHundredPts: {fileID: 21300000, guid: caea7862e722f4c9e8f8e73bd17b01a7, type: 3}
+  fourHundredPts: {fileID: 21300002, guid: caea7862e722f4c9e8f8e73bd17b01a7, type: 3}
+  eightHundredPts: {fileID: 21300004, guid: caea7862e722f4c9e8f8e73bd17b01a7, type: 3}
+  sixteenHundredPts: {fileID: 21300006, guid: caea7862e722f4c9e8f8e73bd17b01a7, type: 3}
 --- !u!1001 &1790836208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20960,7 +21098,6 @@ MonoBehaviour:
   right: {fileID: 635926937}
   up: {fileID: 0}
   down: {fileID: 1072330339}
-  pacman: {fileID: 0}
 --- !u!1001 &1915255899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21384,7 +21521,6 @@ MonoBehaviour:
   right: {fileID: 1308222085}
   up: {fileID: 10150367}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1944992080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21568,7 +21704,6 @@ MonoBehaviour:
   right: {fileID: 476344485}
   up: {fileID: 761859563}
   down: {fileID: 793572679}
-  pacman: {fileID: 0}
 --- !u!1 &1956894457
 GameObject:
   m_ObjectHideFlags: 0
@@ -21692,8 +21827,15 @@ MonoBehaviour:
   homeBase: {fileID: 1734089837}
   pacmanDied: 0
   isFrozen: 0
+  isGoingBackToHauntedHouse: 0
   initPos: {x: -0.1, y: 1.046}
   ghostStart: {fileID: 739983407}
+  leftEye: {fileID: 21300002, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  rightEye: {fileID: 21300000, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  downEye: {fileID: 21300006, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  upEye: {fileID: 21300004, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  defaultSprite: {fileID: 21300000, guid: 9f10b4e929faf4de0b7d925525369641, type: 3}
+  eyeSpeed: 3
 --- !u!61 &1956894462
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21823,7 +21965,6 @@ MonoBehaviour:
   right: {fileID: 1734089837}
   up: {fileID: 0}
   down: {fileID: 476353678}
-  pacman: {fileID: 0}
 --- !u!1001 &1977325751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22347,7 +22488,6 @@ MonoBehaviour:
   right: {fileID: 1906755956}
   up: {fileID: 0}
   down: {fileID: 1676333972}
-  pacman: {fileID: 0}
 --- !u!1001 &2031603532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22451,7 +22591,6 @@ MonoBehaviour:
   right: {fileID: 361082605}
   up: {fileID: 793572679}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &2054627493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22555,7 +22694,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1314478333}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &2055510451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23077,7 +23215,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1072330339}
   down: {fileID: 2109046030}
-  pacman: {fileID: 0}
 --- !u!1001 &2107442487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23341,7 +23478,6 @@ MonoBehaviour:
   right: {fileID: 2064931171}
   up: {fileID: 2071521013}
   down: {fileID: 1047054539}
-  pacman: {fileID: 0}
 --- !u!1001 &2110166511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23945,7 +24081,6 @@ MonoBehaviour:
   right: {fileID: 182917556}
   up: {fileID: 1189996548}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &6348562608617988564
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -26,6 +26,13 @@ public class Pacman : MonoBehaviour
 
     public Node startNode;
 
+    public int ghostsCaught;
+
+    public Sprite twoHundredPts;
+    public Sprite fourHundredPts;
+    public Sprite eightHundredPts;
+    public Sprite sixteenHundredPts;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +42,7 @@ public class Pacman : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameController");
         justDied = false;
         isFrozen = true;
+        ghostsCaught = 0;
     }
 
     // Update is called once per frame
@@ -104,9 +112,12 @@ public class Pacman : MonoBehaviour
     {
         if (collision.CompareTag("Ghost"))
         {
-            if (collision.GetComponent<Animator>().GetBool("isScatter"))
+            if (collision.GetComponent<Animator>().GetBool("isScatter") || collision.GetComponent<Animator>().GetBool("isScatterAgain"))
             {
                 // send ghost back to haunted house
+                ghostsCaught++;
+                StartCoroutine(GhostCollisionPoints(collision));
+
             } else
             {
                 justDied = true;
@@ -116,14 +127,44 @@ public class Pacman : MonoBehaviour
                 }
                 currentNode = startNode;
                 destNode = startNode;
-                Invoke("Restart", 2);
+                GetComponent<Transform>().localScale = new Vector3(1.5f, 1.5f, 0);
+                GetComponent<Animator>().SetTrigger("killPacman");
+                Invoke("Restart", 3);
             }
         }
+    }
+
+    IEnumerator GhostCollisionPoints(Collider2D collision)
+    {
+        collision.GetComponent<Ghost>().isFrozen = true;
+        collision.GetComponent<Collider2D>().enabled = false;
+        collision.GetComponent<Animator>().enabled = false;
+        if (ghostsCaught == 1)
+        {
+            collision.GetComponent<SpriteRenderer>().sprite = twoHundredPts;
+            score += 200;
+        } else if (ghostsCaught == 2)
+        {
+            collision.GetComponent<SpriteRenderer>().sprite = fourHundredPts;
+            score += 400;
+        } else if (ghostsCaught == 3)
+        {
+            collision.GetComponent<SpriteRenderer>().sprite = eightHundredPts;
+            score += 800;
+        } else
+        {
+            collision.GetComponent<SpriteRenderer>().sprite = sixteenHundredPts;
+            score += 1600;
+        }
+        yield return new WaitForSeconds(2f);
+        collision.GetComponent<Ghost>().isGoingBackToHauntedHouse = true;
+        collision.GetComponent<Ghost>().isFrozen = false;
     }
 
     private void Restart()
     {
         gameManager.GetComponent<GameManager>().lives--;
+        ghostsCaught = 0;
         if (gameManager.GetComponent<GameManager>().lives <= 0)
         {
             gameManager.GetComponent<GameManager>().GameOver();
