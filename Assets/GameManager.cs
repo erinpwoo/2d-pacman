@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,13 +12,18 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] ghosts;
     public GameObject pacman;
-
+     
     public GameObject playerOne;
     public GameObject ready;
 
     public GameObject life1;
     public GameObject life2;
     public GameObject life3;
+
+    public GameObject gameOver;
+    public GameObject pressAnyKey;
+
+    bool isGameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -30,13 +37,23 @@ public class GameManager : MonoBehaviour
         life2 = GameObject.Find("Life 2");
         life3 = GameObject.Find("Life 3");
 
+        gameOver.SetActive(false);
+        pressAnyKey.SetActive(false);
+        isGameOver = false;
         StartCoroutine(RestartGame());
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (isGameOver)
+        {
+            if (Input.anyKey)
+            {
+                SceneManager.LoadScene("Main Scene");
+            }
+            
+        }
     }
 
     public void DecrementPelletCount()
@@ -127,6 +144,14 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        pacman.SetActive(false);
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            ghosts[i].SetActive(false);
+        }
+        isGameOver = true;
+        gameOver.SetActive(true);
+        pressAnyKey.SetActive(true);
 
     }
 }
