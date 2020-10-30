@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ghost : MonoBehaviour
 {
     public float timeBeforeRelease;
+    public float counterBeforeRelease;
     public float timeUntilScatterEnds;
     public bool hasBeenReleased;
 
@@ -19,6 +20,10 @@ public class Ghost : MonoBehaviour
 
     public bool isFrozen;
 
+    public Vector2 initPos;
+
+    public Node ghostStart;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +31,12 @@ public class Ghost : MonoBehaviour
         hasStartedScatter = false;
         pacmanDied = false;
         isFrozen = true;
+        ResetCounterBeforeRelease();
+    }
+
+    public void ResetCounterBeforeRelease()
+    {
+        counterBeforeRelease = timeBeforeRelease;
     }
 
     // Update is called once per frame
@@ -60,9 +71,9 @@ public class Ghost : MonoBehaviour
             {
                 // up-down movement within box state
                 MoveVertical();
-                if (timeBeforeRelease > 0)
+                if (counterBeforeRelease > 0)
                 {
-                    timeBeforeRelease -= Time.deltaTime;
+                    counterBeforeRelease -= Time.deltaTime;
                 }
                 else
                 {

@@ -16,11 +16,15 @@ public class Pacman : MonoBehaviour
 
     public GameObject[] ghosts;
 
-    private bool justDied;
-
-    public int lives;
+    public bool justDied;
 
     public bool isFrozen;
+
+    public GameObject gameManager;
+
+    public Vector2 initPos;
+
+    public Node startNode;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,7 @@ public class Pacman : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.position = new Vector2(0, -2);
         ghosts = GameObject.FindGameObjectsWithTag("Ghost");
+        gameManager = GameObject.FindGameObjectWithTag("GameController");
         justDied = false;
         isFrozen = true;
     }
@@ -109,7 +114,23 @@ public class Pacman : MonoBehaviour
                 {
                     ghosts[i].GetComponent<Ghost>().pacmanDied = true;
                 }
+                currentNode = startNode;
+                destNode = startNode;
+                Invoke("Restart", 2);
             }
         }
+    }
+
+    private void Restart()
+    {
+        gameManager.GetComponent<GameManager>().lives--;
+        if (gameManager.GetComponent<GameManager>().lives <= 0)
+        {
+            gameManager.GetComponent<GameManager>().GameOver();
+        } else
+        {
+            gameManager.GetComponent<GameManager>().RestartLevel();
+        }
+        
     }
 }

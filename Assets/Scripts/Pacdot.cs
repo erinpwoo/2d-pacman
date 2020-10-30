@@ -9,10 +9,13 @@ public class Pacdot : MonoBehaviour
     public GameObject pacman;
     public GameObject[] ghosts;
 
+    public GameObject gameManager;
+
     private void Awake()
     {
         pacman = GameObject.FindWithTag("Pacman");
         ghosts = GameObject.FindGameObjectsWithTag("Ghost");
+        gameManager = GameObject.FindGameObjectWithTag("GameController");
     }
 
     // Update is called once per frame
@@ -43,6 +46,7 @@ public class Pacdot : MonoBehaviour
                     
                 }
             }
+            gameManager.GetComponent<GameManager>().DecrementPelletCount();
             gameObject.SetActive(false);
         }
     }
