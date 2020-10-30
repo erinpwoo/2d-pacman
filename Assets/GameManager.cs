@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOver;
     public GameObject pressAnyKey;
 
+    public Sprite[] fruits;
+
     public bool isNextLevel;
 
     bool isGameOver;
@@ -38,6 +40,10 @@ public class GameManager : MonoBehaviour
         life1 = GameObject.Find("Life 1");
         life2 = GameObject.Find("Life 2");
         life3 = GameObject.Find("Life 3");
+
+        life1.SetActive(true);
+        life2.SetActive(true);
+        life3.SetActive(true);
 
         gameOver.SetActive(false);
         pressAnyKey.SetActive(false);
@@ -73,6 +79,7 @@ public class GameManager : MonoBehaviour
         // flashing maze here
         pacman.SetActive(false);
         isNextLevel = true;
+        pelletCount = 240;
         for (int i = 0; i < ghosts.Length; i++)
         {
             ghosts[i].SetActive(false);

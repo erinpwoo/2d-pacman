@@ -33,6 +33,14 @@ public class Pacman : MonoBehaviour
     public Sprite eightHundredPts;
     public Sprite sixteenHundredPts;
 
+    public Node leftEnd;
+    public Node rightEnd;
+    private Vector2 nextDir;
+    private Vector2 oppositeDir;
+    private Vector2 currDir;
+    private bool areAllGhostsNormal;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +50,11 @@ public class Pacman : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameController");
         justDied = false;
         isFrozen = true;
+        currDir = Vector2.zero;
+        oppositeDir = Vector2.zero;
         ghostsCaught = 0;
+        destNode = null;
+        areAllGhostsNormal = true;
     }
 
     // Update is called once per frame
@@ -50,30 +62,85 @@ public class Pacman : MonoBehaviour
     {
         if (!justDied && !isFrozen)
         {
-            Move(destNode);
-            if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.I)) && currentNode.up)
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.I))
             {
-                destNode = currentNode.up;
-                transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
-                transform.localRotation = Quaternion.Euler(0, 0, 90);
+                nextDir = Vector2.up;
+                if (Vector2.up == oppositeDir)
+                {
+                    ReverseDir(Vector2.up);
+                    transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
+                    transform.localRotation = Quaternion.Euler(0, 0, 90);
+                }
+                if (!destNode)
+                {
+                    destNode = currentNode.up;
+                    if (destNode)
+                    {
+                        lockDirection(Vector2.up);
+                        transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
+                        transform.localRotation = Quaternion.Euler(0, 0, 90);
+                    }
+                }
             }
-            else if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.M)) && currentNode.down)
+            else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.M))
             {
-                destNode = currentNode.down;
-                transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
-                transform.localRotation = Quaternion.Euler(0, 0, 270);
+
+                nextDir = Vector2.down;
+                if (Vector2.down == oppositeDir)
+                {
+                    ReverseDir(Vector2.down);
+                    transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
+                    transform.localRotation = Quaternion.Euler(0, 0, 270);
+                }
+                if (!destNode)
+                {
+                    destNode = currentNode.down;
+                    if (destNode)
+                    {
+                        lockDirection(Vector2.down);
+                        transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
+                        transform.localRotation = Quaternion.Euler(0, 0, 270);
+                    }
+                }
             }
-            else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.J)) && currentNode.left)
+            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.J))
             {
-                destNode = currentNode.left;
-                transform.localScale = new Vector3(-2.9f, 2.9f, 2.9f);
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                nextDir = Vector2.left;
+                if (Vector2.left == oppositeDir)
+                {
+                    ReverseDir(Vector2.left);
+                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                }
+                if (!destNode)
+                {
+                    destNode = currentNode.left;
+                    if (destNode)
+                    {
+                        lockDirection(Vector2.left);
+                        transform.localScale = new Vector3(-2.9f, 2.9f, 2.9f);
+                        transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    }
+                }
             }
-            else if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.K)) && currentNode.right)
+            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.K))
             {
-                destNode = currentNode.right;
-                transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                nextDir = Vector2.right;
+                if (Vector2.right == oppositeDir)
+                {
+                    ReverseDir(Vector2.right);
+                    transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
+                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                }
+                if (!destNode)
+                {
+                    destNode = currentNode.right;
+                    if (destNode)
+                    {
+                        lockDirection(Vector2.right);
+                        transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
+                        transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    }
+                }
             }
             if (score < 100)
             {
@@ -83,29 +150,170 @@ public class Pacman : MonoBehaviour
             {
                 scoreText.text = score.ToString();
             }
-
-            Vector2 curr = transform.position;
-            if (curr.x < -3.5f)
+            Move();
+        }
+        areAllGhostsNormal = true;
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            if (ghosts[i].GetComponent<Animator>().GetBool("isScatter") || ghosts[i].GetComponent<Animator>().GetBool("isScatterAgain"))
             {
-                curr.x = 3.25f;
-                transform.position = curr;
-            }
-            if (curr.x > 3.5f)
-            {
-                curr.x = -3.25f;
-                transform.position = curr;
+                areAllGhostsNormal = false;
             }
         }
-
+        if (areAllGhostsNormal)
+        {
+            ghostsCaught = 0;
+        }
     }
 
-    void Move(Node dest)
+    void lockDirection(Vector2 dir)
     {
-        transform.position = Vector2.MoveTowards(transform.position, dest.transform.position, speed * Time.deltaTime);
-        if (Vector2.Distance((Vector2)dest.transform.position, (Vector2)transform.position) <= .25f)
+        currDir = dir;
+        oppositeDir = dir * (-1);
+    }
+
+    void MoveToOtherSide(Node node)
+    {
+        if (node == leftEnd)
         {
-            currentNode = dest;
+            transform.position = rightEnd.transform.position;
+            currentNode = rightEnd;
+            destNode = rightEnd.left;
+            currDir = Vector2.left;
+            oppositeDir = Vector2.right;
+            transform.localScale = new Vector3(-2.9f, 2.9f, 2.9f);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        } else
+        {
+            transform.position = leftEnd.transform.position;
+            currentNode = leftEnd;
+            destNode = leftEnd.right;
+            currDir = Vector2.right;
+            oppositeDir = Vector2.left;
+            transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
+    }
+
+    void ReverseDir(Vector2 dir)
+    {
+        Node temp = destNode;
+        destNode = currentNode;
+        currentNode = temp;
+        oppositeDir = dir;
+        currDir = dir;
+    }
+
+    bool hasGoneOverDestNode()
+    {
+        float distFromTarget = Vector2.Distance(destNode.transform.position, (Vector2)currentNode.transform.position);
+        float distFromCurrNode = Vector2.Distance(transform.position, (Vector2)currentNode.transform.position);
+        return distFromCurrNode >= distFromTarget;
+    }
+
+    void Move(/*Node dest*/)
+    {
+        //transform.position = Vector2.MoveTowards(transform.position, dest.transform.position, speed * Time.deltaTime);
+        //if (Vector2.Distance((Vector2)dest.transform.position, (Vector2)transform.position) <= .25f)
+        //{
+        //    currentNode = dest;
+        //}
+
+        if ((destNode != currentNode) && destNode)
+        {
+            if (hasGoneOverDestNode())
+            {
+
+                currentNode = destNode;
+                transform.position = currentNode.transform.position;
+                if (currentNode == leftEnd || currentNode == rightEnd)
+                {
+                    MoveToOtherSide(currentNode);
+                } else
+                {
+                    Vector2 temp = nextDir;
+                    Node nextNode = null;
+                    if (temp == Vector2.up && currentNode.up)
+                    {
+                        nextNode = currentNode.up;
+                    } else if (temp == Vector2.down && currentNode.down)
+                    {
+                        nextNode = currentNode.down;
+                    }
+                    else if (temp == Vector2.left && currentNode.left)
+                    {
+                        nextNode = currentNode.left;
+                    } else if (temp == Vector2.right && currentNode.right)
+                    {
+                        nextNode = currentNode.right;
+                    }
+
+
+                    if (!nextNode)
+                    {
+                        temp = currDir;
+                        if (temp == Vector2.up && currentNode.up)
+                        {
+                            nextNode = currentNode.up;
+                        }
+                        else if (temp == Vector2.down && currentNode.down)
+                        {
+                            nextNode = currentNode.down;
+                        }
+                        else if (temp == Vector2.left && currentNode.left)
+                        {
+                            nextNode = currentNode.left;
+                        }
+                        else if (temp == Vector2.right && currentNode.right)
+                        {
+                            nextNode = currentNode.right;
+                        }
+                        oppositeDir = currDir * (-1);
+
+                        if (!nextNode)
+                        {
+                            currDir = Vector2.zero;
+                            nextDir = Vector2.zero;
+                            oppositeDir = Vector2.zero;
+                            destNode = null;
+                        } else
+                        {
+                            destNode = nextNode;
+                        }
+                        
+                    } else
+                    {
+                        currDir = nextDir;
+                        oppositeDir = currDir * (-1);
+                        destNode = nextNode;
+                    }
+                    if (temp != null)
+                    {
+                        if (temp == Vector2.up)
+                        {
+                            transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
+                            transform.localRotation = Quaternion.Euler(0, 0, 90);
+                        }
+                        else if (temp == Vector2.down)
+                        {
+                            transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
+                            transform.localRotation = Quaternion.Euler(0, 0, 270);
+                        }
+                        else if (temp == Vector2.left)
+                        {
+                            transform.localScale = new Vector3(-2.9f, 2.9f, 2.9f);
+                            transform.localRotation = Quaternion.Euler(0, 0, 0);
+                        }
+                        else if (temp == Vector2.right)
+                        {
+                            transform.localScale = new Vector3(2.9f, 2.9f, 2.9f);
+                            transform.localRotation = Quaternion.Euler(0, 0, 0);
+                        }
+                    }
+                }
+            }
+        }
+        transform.position += (Vector3)(currDir * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
