@@ -535,7 +535,6 @@ MonoBehaviour:
   right: {fileID: 571241553}
   up: {fileID: 0}
   down: {fileID: 1935538418}
-  pacman: {fileID: 0}
 --- !u!1001 &25667990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1224,7 +1223,6 @@ MonoBehaviour:
   right: {fileID: 1056337444}
   up: {fileID: 0}
   down: {fileID: 572001584}
-  pacman: {fileID: 0}
 --- !u!1001 &110902272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1866,7 +1864,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 1149310878}
-  pacman: {fileID: 0}
 --- !u!1001 &192511524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2050,7 +2047,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 1677585918}
-  pacman: {fileID: 0}
 --- !u!1001 &225713274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2234,7 +2230,6 @@ MonoBehaviour:
   right: {fileID: 729715622}
   up: {fileID: 0}
   down: {fileID: 361082605}
-  pacman: {fileID: 0}
 --- !u!1001 &247049692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2418,7 +2413,6 @@ MonoBehaviour:
   right: {fileID: 1955849841}
   up: {fileID: 162000340}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &285277840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2602,7 +2596,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1130536567}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &305923870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2706,7 +2699,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1043416429}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &308566336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2890,7 +2882,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &325080546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3336,7 +3327,6 @@ MonoBehaviour:
   right: {fileID: 1130536567}
   up: {fileID: 246384829}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &370526018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4993,7 +4983,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 729715622}
-  pacman: {fileID: 0}
 --- !u!1001 &476353675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5097,7 +5086,6 @@ MonoBehaviour:
   right: {fileID: 1314478333}
   up: {fileID: 1963978019}
   down: {fileID: 950722832}
-  pacman: {fileID: 0}
 --- !u!1001 &488760993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6026,7 +6014,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1280403826}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &562314174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6210,7 +6197,6 @@ MonoBehaviour:
   right: {fileID: 1543065188}
   up: {fileID: 1771240411}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &572001581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6314,7 +6300,6 @@ MonoBehaviour:
   right: {fileID: 221615096}
   up: {fileID: 96378555}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &600177369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6577,7 +6562,6 @@ MonoBehaviour:
   right: {fileID: 1694418077}
   up: {fileID: 1308222085}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &629064444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6761,7 +6745,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 1056337444}
-  pacman: {fileID: 0}
 --- !u!1 &646958875
 GameObject:
   m_ObjectHideFlags: 0
@@ -7760,7 +7743,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 476344485}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &734024582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8122,7 +8104,6 @@ MonoBehaviour:
   right: {fileID: 1899517917}
   up: {fileID: 950722832}
   down: {fileID: 1955849841}
-  pacman: {fileID: 0}
 --- !u!1001 &770936156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8306,7 +8287,6 @@ MonoBehaviour:
   right: {fileID: 265021547}
   up: {fileID: 0}
   down: {fileID: 1543065188}
-  pacman: {fileID: 0}
 --- !u!1001 &793572676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8410,7 +8390,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1955849841}
   down: {fileID: 2031603535}
-  pacman: {fileID: 0}
 --- !u!1001 &799738338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9239,7 +9218,6 @@ MonoBehaviour:
   right: {fileID: 476353678}
   up: {fileID: 1442548320}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!114 &925769614 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7103114392777706781, guid: b06475f9d7305402982faf7a9806152a,
@@ -9441,7 +9419,6 @@ MonoBehaviour:
   right: {fileID: 2054627496}
   up: {fileID: 476353678}
   down: {fileID: 761859563}
-  pacman: {fileID: 0}
 --- !u!1001 &952885422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9994,7 +9971,6 @@ MonoBehaviour:
   right: {fileID: 793572679}
   up: {fileID: 0}
   down: {fileID: 305923873}
-  pacman: {fileID: 0}
 --- !u!1001 &1045190493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10178,7 +10154,6 @@ MonoBehaviour:
   right: {fileID: 1076059949}
   up: {fileID: 2109046030}
   down: {fileID: 1280403826}
-  pacman: {fileID: 0}
 --- !u!1001 &1052679660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10282,7 +10257,6 @@ MonoBehaviour:
   right: {fileID: 1086272654}
   up: {fileID: 0}
   down: {fileID: 669846999}
-  pacman: {fileID: 0}
 --- !u!1001 &1056337441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10386,7 +10360,6 @@ MonoBehaviour:
   right: {fileID: 918609083}
   up: {fileID: 635926937}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1057217358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10810,7 +10783,6 @@ MonoBehaviour:
   right: {fileID: 1149310878}
   up: {fileID: 0}
   down: {fileID: 1756967011}
-  pacman: {fileID: 0}
 --- !u!1001 &1072330336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10914,7 +10886,6 @@ MonoBehaviour:
   right: {fileID: 96378555}
   up: {fileID: 1906755956}
   down: {fileID: 2071521013}
-  pacman: {fileID: 0}
 --- !u!1001 &1073755130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11098,7 +11069,6 @@ MonoBehaviour:
   right: {fileID: 1771240411}
   up: {fileID: 1690783146}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1086272651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11202,7 +11172,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1703486647}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1 &1093700447
 GameObject:
   m_ObjectHideFlags: 0
@@ -11969,7 +11938,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 290554682}
-  pacman: {fileID: 0}
 --- !u!1001 &1132039811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12233,7 +12201,6 @@ MonoBehaviour:
   right: {fileID: 553820317}
   up: {fileID: 182917556}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1152064135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12817,7 +12784,6 @@ MonoBehaviour:
   right: {fileID: 1047054539}
   up: {fileID: 0}
   down: {fileID: 2426801233913399391}
-  pacman: {fileID: 0}
 --- !u!1001 &1191961388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12921,7 +12887,6 @@ MonoBehaviour:
   right: {fileID: 2071521013}
   up: {fileID: 1676333972}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1193982732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13822,7 +13787,6 @@ MonoBehaviour:
   right: {fileID: 10150367}
   up: {fileID: 1047054539}
   down: {fileID: 553820317}
-  pacman: {fileID: 0}
 --- !u!1001 &1286062337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14344,7 +14308,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 620914335}
-  pacman: {fileID: 0}
 --- !u!1001 &1314478330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14448,7 +14411,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1734089837}
   down: {fileID: 2054627496}
-  pacman: {fileID: 0}
 --- !u!1001 &1335729145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15687,7 +15649,6 @@ MonoBehaviour:
   right: {fileID: 1963978019}
   up: {fileID: 0}
   down: {fileID: 918609083}
-  pacman: {fileID: 0}
 --- !u!1001 &1448974765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16712,7 +16673,6 @@ MonoBehaviour:
   right: {fileID: 1043416429}
   up: {fileID: 777946906}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1547585226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17811,7 +17771,6 @@ MonoBehaviour:
   right: {fileID: 305923873}
   up: {fileID: 0}
   down: {fileID: 1694418077}
-  pacman: {fileID: 0}
 --- !u!1 &1646249647
 GameObject:
   m_ObjectHideFlags: 0
@@ -18147,6 +18106,7 @@ MonoBehaviour:
   life3: {fileID: 0}
   gameOver: {fileID: 354992194}
   pressAnyKey: {fileID: 1218304824}
+  isNextLevel: 0
 --- !u!4 &1658005714
 Transform:
   m_ObjectHideFlags: 0
@@ -18418,7 +18378,6 @@ MonoBehaviour:
   right: {fileID: 1072330339}
   up: {fileID: 1991246510}
   down: {fileID: 1191961391}
-  pacman: {fileID: 0}
 --- !u!114 &1677585918 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7103114392777706781, guid: b06475f9d7305402982faf7a9806152a,
@@ -18638,7 +18597,6 @@ MonoBehaviour:
   right: {fileID: 290554682}
   up: {fileID: 1635989207}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1701903260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18822,7 +18780,6 @@ MonoBehaviour:
   right: {fileID: 476353678}
   up: {fileID: 0}
   down: {fileID: 1086272654}
-  pacman: {fileID: 0}
 --- !u!1001 &1706765760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19326,7 +19283,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 1314478333}
-  pacman: {fileID: 0}
 --- !u!1001 &1737354599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19590,7 +19546,6 @@ MonoBehaviour:
   right: {fileID: 620914335}
   up: {fileID: 1070853115}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1771240408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19694,7 +19649,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 571241553}
-  pacman: {fileID: 0}
 --- !u!1 &1787598284
 GameObject:
   m_ObjectHideFlags: 0
@@ -21144,7 +21098,6 @@ MonoBehaviour:
   right: {fileID: 635926937}
   up: {fileID: 0}
   down: {fileID: 1072330339}
-  pacman: {fileID: 0}
 --- !u!1001 &1915255899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21568,7 +21521,6 @@ MonoBehaviour:
   right: {fileID: 1308222085}
   up: {fileID: 10150367}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &1944992080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21752,7 +21704,6 @@ MonoBehaviour:
   right: {fileID: 476344485}
   up: {fileID: 761859563}
   down: {fileID: 793572679}
-  pacman: {fileID: 0}
 --- !u!1 &1956894457
 GameObject:
   m_ObjectHideFlags: 0
@@ -22014,7 +21965,6 @@ MonoBehaviour:
   right: {fileID: 1734089837}
   up: {fileID: 0}
   down: {fileID: 476353678}
-  pacman: {fileID: 0}
 --- !u!1001 &1977325751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22538,7 +22488,6 @@ MonoBehaviour:
   right: {fileID: 1906755956}
   up: {fileID: 0}
   down: {fileID: 1676333972}
-  pacman: {fileID: 0}
 --- !u!1001 &2031603532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22642,7 +22591,6 @@ MonoBehaviour:
   right: {fileID: 361082605}
   up: {fileID: 793572679}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &2054627493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22746,7 +22694,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1314478333}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &2055510451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23268,7 +23215,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 1072330339}
   down: {fileID: 2109046030}
-  pacman: {fileID: 0}
 --- !u!1001 &2107442487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23532,7 +23478,6 @@ MonoBehaviour:
   right: {fileID: 2064931171}
   up: {fileID: 2071521013}
   down: {fileID: 1047054539}
-  pacman: {fileID: 0}
 --- !u!1001 &2110166511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24136,7 +24081,6 @@ MonoBehaviour:
   right: {fileID: 182917556}
   up: {fileID: 1189996548}
   down: {fileID: 0}
-  pacman: {fileID: 0}
 --- !u!1001 &6348562608617988564
 PrefabInstance:
   m_ObjectHideFlags: 0

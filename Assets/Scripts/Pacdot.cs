@@ -10,44 +10,55 @@ public class Pacdot : MonoBehaviour
     public GameObject[] ghosts;
 
     public GameObject gameManager;
+    public bool isOff;
 
     private void Awake()
     {
         pacman = GameObject.FindWithTag("Pacman");
         ghosts = GameObject.FindGameObjectsWithTag("Ghost");
         gameManager = GameObject.FindGameObjectWithTag("GameController");
+        isOff = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameManager.GetComponent<GameManager>().isNextLevel)
+        {
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            isOff = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Pacman"))
+        if (!isOff)
         {
-            if (gameObject.CompareTag("Pacdot"))
+            if (collision.CompareTag("Pacman"))
             {
-                pacman.GetComponent<Pacman>().score += 10;
-            }
-            else if (gameObject.CompareTag("Bonus Pellet"))
-            {
-                pacman.GetComponent<Pacman>().score += 50;
-                for (int i = 0; i < ghosts.Length; i++)
+                if (gameObject.CompareTag("Pacdot"))
                 {
-                    if (ghosts[i].GetComponent<Animator>().GetBool("isScatter")) {
-                        ghosts[i].GetComponent<Animator>().SetTrigger("isScatterAgain");
-                    } else
-                    {
-                        ghosts[i].GetComponent<Animator>().SetBool("isScatter", true);
-                    }
-                    
+                    pacman.GetComponent<Pacman>().score += 10;
                 }
-            }
-            gameManager.GetComponent<GameManager>().DecrementPelletCount();
-            gameObject.SetActive(false);
+                else if (gameObject.CompareTag("Bonus Pellet"))
+                {
+                    pacman.GetComponent<Pacman>().score += 50;
+                    for (int i = 0; i < ghosts.Length; i++)
+                    {
+                        if (ghosts[i].GetComponent<Animator>().GetBool("isScatter")) {
+                            ghosts[i].GetComponent<Animator>().SetTrigger("isScatterAgain");
+                        } else
+                        {
+                            ghosts[i].GetComponent<Animator>().SetBool("isScatter", true);
+                        }
+                    
+                    }
+                }
+                gameManager.GetComponent<GameManager>().DecrementPelletCount();
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                isOff = true;
+             }
+        
         }
     }
 }

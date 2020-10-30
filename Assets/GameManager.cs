@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOver;
     public GameObject pressAnyKey;
 
+    public bool isNextLevel;
+
     bool isGameOver;
 
     // Start is called before the first frame update
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
 
         gameOver.SetActive(false);
         pressAnyKey.SetActive(false);
+        isNextLevel = false;
         isGameOver = false;
         StartCoroutine(RestartGame());
     }
@@ -69,11 +72,11 @@ public class GameManager : MonoBehaviour
     {
         // flashing maze here
         pacman.SetActive(false);
+        isNextLevel = true;
         for (int i = 0; i < ghosts.Length; i++)
         {
             ghosts[i].SetActive(false);
         }
-
         StartCoroutine(RestartGame());
     }
 
@@ -86,6 +89,8 @@ public class GameManager : MonoBehaviour
     {
         pacman.GetComponent<Animator>().ResetTrigger("killPacman");
         pacman.GetComponent<Transform>().localScale = new Vector2(2.9f, 2.9f);
+        pacman.GetComponent<Pacman>().destNode = pacman.GetComponent<Pacman>().startNode;
+        pacman.GetComponent<Pacman>().currentNode = pacman.GetComponent<Pacman>().startNode;
         for (int i = 0; i < ghosts.Length; i++)
         {
             ghosts[i].GetComponent<Transform>().position = ghosts[i].GetComponent<Ghost>().initPos;
@@ -140,6 +145,7 @@ public class GameManager : MonoBehaviour
         {
             life1.SetActive(false);
         }
+        isNextLevel = false;
     }
 
     public void GameOver()
