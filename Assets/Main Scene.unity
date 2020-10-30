@@ -4378,8 +4378,15 @@ MonoBehaviour:
   homeBase: {fileID: 1756967011}
   pacmanDied: 0
   isFrozen: 0
+  isGoingBackToHauntedHouse: 0
   initPos: {x: -0.12, y: 0.36}
   ghostStart: {fileID: 739983407}
+  leftEye: {fileID: 21300002, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  rightEye: {fileID: 21300000, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  downEye: {fileID: 21300006, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  upEye: {fileID: 21300004, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  defaultSprite: {fileID: 21300020, guid: 9f10b4e929faf4de0b7d925525369641, type: 3}
+  eyeSpeed: 2
 --- !u!61 &455480532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5804,8 +5811,15 @@ MonoBehaviour:
   homeBase: {fileID: 290554682}
   pacmanDied: 0
   isFrozen: 0
+  isGoingBackToHauntedHouse: 0
   initPos: {x: 0.358, y: 0.36}
   ghostStart: {fileID: 739983407}
+  leftEye: {fileID: 21300002, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  rightEye: {fileID: 21300000, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  downEye: {fileID: 21300006, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  upEye: {fileID: 21300004, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  defaultSprite: {fileID: 21300004, guid: 9f10b4e929faf4de0b7d925525369641, type: 3}
+  eyeSpeed: 3
 --- !u!61 &550478650
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16066,8 +16080,15 @@ MonoBehaviour:
   homeBase: {fileID: 1991246510}
   pacmanDied: 0
   isFrozen: 0
+  isGoingBackToHauntedHouse: 0
   initPos: {x: -0.6, y: 0.36}
   ghostStart: {fileID: 739983407}
+  leftEye: {fileID: 21300002, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  rightEye: {fileID: 21300000, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  downEye: {fileID: 21300006, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  upEye: {fileID: 21300004, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  defaultSprite: {fileID: 21300036, guid: 9f10b4e929faf4de0b7d925525369641, type: 3}
+  eyeSpeed: 3
 --- !u!61 &1478119331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21692,8 +21713,15 @@ MonoBehaviour:
   homeBase: {fileID: 1734089837}
   pacmanDied: 0
   isFrozen: 0
+  isGoingBackToHauntedHouse: 0
   initPos: {x: -0.1, y: 1.046}
   ghostStart: {fileID: 739983407}
+  leftEye: {fileID: 21300002, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  rightEye: {fileID: 21300000, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  downEye: {fileID: 21300006, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  upEye: {fileID: 21300004, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
+  defaultSprite: {fileID: 21300000, guid: 9f10b4e929faf4de0b7d925525369641, type: 3}
+  eyeSpeed: 3
 --- !u!61 &1956894462
 BoxCollider2D:
   m_ObjectHideFlags: 0

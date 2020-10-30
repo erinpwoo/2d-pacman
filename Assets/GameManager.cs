@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator RestartGame()
     {
+        pacman.GetComponent<Animator>().ResetTrigger("killPacman");
+        pacman.GetComponent<Transform>().localScale = new Vector2(2.9f, 2.9f);
         for (int i = 0; i < ghosts.Length; i++)
         {
             ghosts[i].GetComponent<Transform>().position = ghosts[i].GetComponent<Ghost>().initPos;

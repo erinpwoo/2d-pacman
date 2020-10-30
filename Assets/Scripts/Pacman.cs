@@ -107,6 +107,7 @@ public class Pacman : MonoBehaviour
             if (collision.GetComponent<Animator>().GetBool("isScatter"))
             {
                 // send ghost back to haunted house
+                collision.GetComponent<Ghost>().isGoingBackToHauntedHouse = true;
             } else
             {
                 justDied = true;
@@ -116,7 +117,9 @@ public class Pacman : MonoBehaviour
                 }
                 currentNode = startNode;
                 destNode = startNode;
-                Invoke("Restart", 2);
+                GetComponent<Transform>().localScale = new Vector3(1.5f, 1.5f, 0);
+                GetComponent<Animator>().SetTrigger("killPacman");
+                Invoke("Restart", 3);
             }
         }
     }
