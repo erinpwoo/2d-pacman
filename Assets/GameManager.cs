@@ -39,6 +39,10 @@ public class GameManager : MonoBehaviour
         life2 = GameObject.Find("Life 2");
         life3 = GameObject.Find("Life 3");
 
+        life1.SetActive(true);
+        life2.SetActive(true);
+        life3.SetActive(true);
+
         gameOver.SetActive(false);
         pressAnyKey.SetActive(false);
         isNextLevel = false;

@@ -15939,7 +15939,7 @@ PrefabInstance:
     - target: {fileID: 8214093845951927287, guid: b06475f9d7305402982faf7a9806152a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.5
+      value: -3.12
       objectReference: {fileID: 0}
     - target: {fileID: 8214093845951927287, guid: b06475f9d7305402982faf7a9806152a,
         type: 3}
@@ -19804,7 +19804,7 @@ MonoBehaviour:
   score: 0
   scoreText: {fileID: 1338043076}
   currentNode: {fileID: 1835470908}
-  destNode: {fileID: 1835470908}
+  destNode: {fileID: 0}
   ghosts: []
   justDied: 0
   isFrozen: 0
@@ -19816,6 +19816,8 @@ MonoBehaviour:
   fourHundredPts: {fileID: 21300002, guid: caea7862e722f4c9e8f8e73bd17b01a7, type: 3}
   eightHundredPts: {fileID: 21300004, guid: caea7862e722f4c9e8f8e73bd17b01a7, type: 3}
   sixteenHundredPts: {fileID: 21300006, guid: caea7862e722f4c9e8f8e73bd17b01a7, type: 3}
+  leftEnd: {fileID: 0}
+  rightEnd: {fileID: 0}
 --- !u!1001 &1790836208
 PrefabInstance:
   m_ObjectHideFlags: 0
