@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOver;
     public GameObject pressAnyKey;
 
+    public Sprite[] fruits;
+
     public bool isNextLevel;
 
     bool isGameOver;

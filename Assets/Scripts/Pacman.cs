@@ -38,6 +38,7 @@ public class Pacman : MonoBehaviour
     private Vector2 nextDir;
     private Vector2 oppositeDir;
     private Vector2 currDir;
+    private bool areAllGhostsNormal;
 
 
     // Start is called before the first frame update
@@ -53,6 +54,7 @@ public class Pacman : MonoBehaviour
         oppositeDir = Vector2.zero;
         ghostsCaught = 0;
         destNode = null;
+        areAllGhostsNormal = true;
     }
 
     // Update is called once per frame
@@ -150,7 +152,18 @@ public class Pacman : MonoBehaviour
             }
             Move();
         }
-
+        areAllGhostsNormal = true;
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            if (ghosts[i].GetComponent<Animator>().GetBool("isScatter") || ghosts[i].GetComponent<Animator>().GetBool("isScatterAgain"))
+            {
+                areAllGhostsNormal = false;
+            }
+        }
+        if (areAllGhostsNormal)
+        {
+            ghostsCaught = 0;
+        }
     }
 
     void lockDirection(Vector2 dir)
