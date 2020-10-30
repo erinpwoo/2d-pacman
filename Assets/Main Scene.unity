@@ -16081,7 +16081,7 @@ MonoBehaviour:
   pacmanDied: 0
   isFrozen: 0
   isGoingBackToHauntedHouse: 0
-  initPos: {x: -0.6, y: 0.36}
+  initPos: {x: -0.6, y: 0.3}
   ghostStart: {fileID: 739983407}
   leftEye: {fileID: 21300002, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}
   rightEye: {fileID: 21300000, guid: 3d342268e21914d5eb46748f09e05e3f, type: 3}

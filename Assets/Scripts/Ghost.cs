@@ -206,11 +206,12 @@ public class Ghost : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, destNode.transform.position, eyeSpeed * Time.deltaTime);
         if (Vector2.Distance((Vector2)destNode.transform.position, (Vector2)transform.position) <= .01f)
         {
+            Node prev = currentNode;
             currentNode = destNode;
             float min = Mathf.Infinity;
 
             Node temp = currentNode;
-            if (currentNode.left)
+            if (currentNode.left && (prev != currentNode.left))
             {
                 if (Vector2.Distance((Vector2)ghostStart.transform.position, (Vector2)currentNode.left.GetComponent<Transform>().position) <= min)
                 {
@@ -218,7 +219,7 @@ public class Ghost : MonoBehaviour
                     temp = currentNode.left;
                 }
             }
-            if (currentNode.right)
+            if (currentNode.right && (prev != currentNode.right))
             {
                 if (Vector2.Distance((Vector2)ghostStart.transform.position, (Vector2)currentNode.right.GetComponent<Transform>().position) <= min)
                 {
@@ -226,7 +227,7 @@ public class Ghost : MonoBehaviour
                     temp = currentNode.right;
                 }
             }
-            if (currentNode.up)
+            if (currentNode.up && (prev != currentNode.up))
             {
                 if (Vector2.Distance((Vector2)ghostStart.transform.position, (Vector2)currentNode.up.GetComponent<Transform>().position) <= min)
                 {
@@ -234,7 +235,7 @@ public class Ghost : MonoBehaviour
                     temp = currentNode.up;
                 }
             }
-            if (currentNode.down)
+            if (currentNode.down && (prev != currentNode.left))
             {
                 if (Vector2.Distance((Vector2)ghostStart.transform.position, (Vector2)currentNode.down.GetComponent<Transform>().position) <= min)
                 {

@@ -26,6 +26,8 @@ public class Pacman : MonoBehaviour
 
     public Node startNode;
 
+    public int ghostsCaught;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,7 @@ public class Pacman : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameController");
         justDied = false;
         isFrozen = true;
+        ghostsCaught = 0;
     }
 
     // Update is called once per frame
@@ -108,6 +111,8 @@ public class Pacman : MonoBehaviour
             {
                 // send ghost back to haunted house
                 collision.GetComponent<Ghost>().isGoingBackToHauntedHouse = true;
+                ghostsCaught++;
+
             } else
             {
                 justDied = true;
@@ -124,9 +129,18 @@ public class Pacman : MonoBehaviour
         }
     }
 
+    IEnumerator GhostCollisionPoints(Collider2D collision)
+    {
+        collision.GetComponent<Ghost>().isFrozen = true;
+        collision.GetComponent<SpriteRenderer>().enabled = false;
+
+        yield return new WaitForSeconds(2f);
+    }
+
     private void Restart()
     {
         gameManager.GetComponent<GameManager>().lives--;
+        ghostsCaught = 0;
         if (gameManager.GetComponent<GameManager>().lives <= 0)
         {
             gameManager.GetComponent<GameManager>().GameOver();
