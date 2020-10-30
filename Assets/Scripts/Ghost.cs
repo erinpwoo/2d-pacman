@@ -34,7 +34,7 @@ public class Ghost : MonoBehaviour
     public float eyeSpeed;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GetComponent<Animator>().SetBool("isScatter", false);
         hasStartedScatter = false;
@@ -264,19 +264,15 @@ public class Ghost : MonoBehaviour
 
             if (temp == currentNode.right)
             {
-                print("right");
                 GetComponent<SpriteRenderer>().sprite = rightEye;
             } else if (temp == currentNode.left)
             {
-                print("left");
                 GetComponent<SpriteRenderer>().sprite = leftEye;
             } else if (temp == currentNode.down)
             {
-                print("down");
                 GetComponent<SpriteRenderer>().sprite = downEye;
             } else
             {
-                print("up");
                 GetComponent<SpriteRenderer>().sprite = upEye;
             }
 
