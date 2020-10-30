@@ -288,9 +288,9 @@ public class Ghost : MonoBehaviour
         if (Vector2.Distance((Vector2)currentNode.transform.position, (Vector2)ghostStart.transform.position) <= .45f)
         {
             GetComponent<Transform>().position = new Vector2(-.12f, .36f);
-            GetComponent<SpriteRenderer>().sprite = defaultSprite;
             isGoingBackToHauntedHouse = false;
             GetComponent<Animator>().enabled = true;
+            GetComponent<Collider2D>().enabled = true;
             destNode = ghostStart;
             currentNode = null;
             GetComponent<Animator>().SetTrigger("isBackToNormal");

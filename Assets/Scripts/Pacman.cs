@@ -137,6 +137,7 @@ public class Pacman : MonoBehaviour
     IEnumerator GhostCollisionPoints(Collider2D collision)
     {
         collision.GetComponent<Ghost>().isFrozen = true;
+        collision.GetComponent<Collider2D>().enabled = false;
         collision.GetComponent<Animator>().enabled = false;
         if (ghostsCaught == 1)
         {
@@ -157,8 +158,6 @@ public class Pacman : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
         collision.GetComponent<Ghost>().isGoingBackToHauntedHouse = true;
-        collision.GetComponent<Animator>().enabled = true;
-        collision.GetComponent<SpriteRenderer>().sprite = collision.GetComponent<Ghost>().defaultSprite;
         collision.GetComponent<Ghost>().isFrozen = false;
     }
 
