@@ -79,6 +79,11 @@ public class Ghost : MonoBehaviour
             }
             else
             {
+                if (GetComponent<Animator>().GetBool("isScatter")) {
+                    // scatter state
+                    GetComponent<Animator>().SetFloat("DirX", 0);
+                    GetComponent<Animator>().SetFloat("DirY", 0);
+                }
                 // up-down movement within box state
                 MoveVertical();
                 if (counterBeforeRelease > 0)
