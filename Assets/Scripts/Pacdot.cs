@@ -7,10 +7,15 @@ public class Pacdot : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject pacman;
-    
-    void Start()
+    public GameObject[] ghosts;
+
+    public GameObject gameManager;
+
+    private void Awake()
     {
         pacman = GameObject.FindWithTag("Pacman");
+        ghosts = GameObject.FindGameObjectsWithTag("Ghost");
+        gameManager = GameObject.FindGameObjectWithTag("GameController");
     }
 
     // Update is called once per frame
@@ -21,16 +26,28 @@ public class Pacdot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       if (collision.CompareTag("Pacman"))
-       {
-           if (gameObject.CompareTag("Pacdot"))
-           {
-               pacman.GetComponent<Pacman>().score += 10;
-           } else if (gameObject.CompareTag("Pacdot"))
-           {
-               pacman.GetComponent<Pacman>().score += 50;
-           }
-           gameObject.SetActive(false);
-       }
+        if (collision.CompareTag("Pacman"))
+        {
+            if (gameObject.CompareTag("Pacdot"))
+            {
+                pacman.GetComponent<Pacman>().score += 10;
+            }
+            else if (gameObject.CompareTag("Bonus Pellet"))
+            {
+                pacman.GetComponent<Pacman>().score += 50;
+                for (int i = 0; i < ghosts.Length; i++)
+                {
+                    if (ghosts[i].GetComponent<Animator>().GetBool("isScatter")) {
+                        ghosts[i].GetComponent<Animator>().SetTrigger("isScatterAgain");
+                    } else
+                    {
+                        ghosts[i].GetComponent<Animator>().SetBool("isScatter", true);
+                    }
+                    
+                }
+            }
+            gameManager.GetComponent<GameManager>().DecrementPelletCount();
+            gameObject.SetActive(false);
+        }
     }
 }
