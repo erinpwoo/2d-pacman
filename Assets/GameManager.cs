@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int pelletCount = 265;
+    public int pelletCount = 240;
     public int currentLevel = 1;
     public int lives = 3;
 
@@ -51,6 +51,12 @@ public class GameManager : MonoBehaviour
     void NextLevel()
     {
         // flashing maze here
+        pacman.SetActive(false);
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            ghosts[i].SetActive(false);
+        }
+
         StartCoroutine(RestartGame());
     }
 
@@ -66,7 +72,10 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < ghosts.Length; i++)
         {
             ghosts[i].GetComponent<Transform>().position = ghosts[i].GetComponent<Ghost>().initPos;
-            ghosts[i].SetActive(false);
+            if (ghosts[i].activeSelf)
+            {
+                ghosts[i].SetActive(false);
+            }
         }
         playerOne.SetActive(true);
         ready.SetActive(true);

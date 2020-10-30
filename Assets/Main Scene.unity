@@ -17979,7 +17979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7f7099912494a7da3e727c7fcc98bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pelletCount: 265
+  pelletCount: 240
   currentLevel: 1
   lives: 3
   ghosts: []
