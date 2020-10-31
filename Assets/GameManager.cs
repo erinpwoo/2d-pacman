@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject playerOne;
     public GameObject ready;
 
+    public int level;
+
     public GameObject life1;
     public GameObject life2;
     public GameObject life3;
@@ -26,8 +28,11 @@ public class GameManager : MonoBehaviour
     public Sprite[] fruits;
 
     public bool isNextLevel;
+    public GameObject fruit;
+    public int randomPts;
 
     bool isGameOver;
+    bool hasSpawnedFruit;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +54,9 @@ public class GameManager : MonoBehaviour
         pressAnyKey.SetActive(false);
         isNextLevel = false;
         isGameOver = false;
+        level = 1;
+        randomPts = Random.Range(100, 5000);
+        hasSpawnedFruit = false;
         StartCoroutine(RestartGame());
     }
 
@@ -63,7 +71,12 @@ public class GameManager : MonoBehaviour
             }
             
         }
-    }
+        //if (pacman.GetComponent<Pacman>().score >= randomPts && !hasSpawnedFruit)
+        //{
+        //    hasSpawnedFruit = true;
+        //    StartCoroutine(SpawnFruit());
+        //}
+     }
 
     public void DecrementPelletCount()
     {
@@ -76,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     void NextLevel()
     {
-        // flashing maze here
+
         pacman.SetActive(false);
         isNextLevel = true;
         pelletCount = 240;
@@ -92,8 +105,23 @@ public class GameManager : MonoBehaviour
         StartCoroutine(RestartGame());
     }
 
+    public IEnumerator SpawnFruit()
+    {
+        fruit.SetActive(true);
+        yield return new WaitForSeconds(9f);
+        fruit.SetActive(false);
+    }
+
     public IEnumerator RestartGame()
     {
+        level++;
+        if (level <= 8)
+        {
+            fruit.GetComponent<SpriteRenderer>().sprite = fruits[level - 1];
+            fruit.SetActive(false);
+        }
+
+
         pacman.GetComponent<Animator>().ResetTrigger("killPacman");
         pacman.GetComponent<Transform>().localScale = new Vector3(2.9f, 2.9f, 2.9f);
         pacman.GetComponent<Transform>().transform.localRotation = Quaternion.Euler(0, 0, 0);

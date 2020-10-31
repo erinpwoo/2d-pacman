@@ -335,6 +335,39 @@ public class Pacman : MonoBehaviour
                 Invoke("Restart", 3);
             }
         }
+        if (collision.CompareTag("Fruit"))
+        {
+            switch (gameManager.GetComponent<GameManager>().level)
+            {
+                case 1:
+                    score += 100;
+                    break;
+                case 2:
+                    score += 300;
+                    break;
+                case 3:
+                    score += 500;
+                    break;
+                case 4:
+                    score += 700;
+                    break;
+                case 5:
+                    score += 1000;
+                    break;
+                case 6:
+                    score += 2000;
+                    break;
+                case 7:
+                    score += 3000;
+                    break;
+                case 8:
+                    score += 5000;
+                    break;
+                default:
+                    break;
+            }
+            collision.GetComponent<GameObject>().SetActive(false);
+        }
     }
 
     IEnumerator GhostCollisionPoints(Collider2D collision)
